@@ -49,7 +49,72 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>generate-dto-types</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>cz.habarta.typescript-generator</groupId>
+						<artifactId>typescript-generator-maven-plugin</artifactId>
+						<version>3.2.1263</version>
+						<executions>
+							<execution>
+								<id>generate</id>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+								<phase>process-classes</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<jsonLibrary>jackson2</jsonLibrary>
+							<classPatterns>
+								<class>pl.polsl.geoapp.dto.**</class>
+							</classPatterns>
+							<outputFileType>implementationFile</outputFileType>
+							<outputKind>module</outputKind>
+							<outputFile>../frontend/src/dto/dto.ts</outputFile>
+							<mapClasses>asInterfaces</mapClasses>
+							<noFileComment>false</noFileComment>
+							<sortDeclarations>true</sortDeclarations>
+							<customTypeMappings>
+								<mapping>java.util.Date:string</mapping>
+								<mapping>java.sql.Date:string</mapping>
+								<mapping>java.sql.Timestamp:string</mapping>
+								<mapping>java.time.LocalDate:string</mapping>
+								<mapping>java.time.LocalTime:string</mapping>
+								<mapping>java.time.YearMonth:string</mapping>
+								<mapping>java.time.LocalDateTime:string</mapping>
+							</customTypeMappings>
+							<indentString xml:space="preserve">  </indentString>
+							<optionalPropertiesDeclaration>nullableType</optionalPropertiesDeclaration>
+							<requiredAnnotations>
+								<annotation>javax.validation.constraints.NotNull</annotation>
+								<annotation>javax.validation.constraints.NotEmpty</annotation>
+								<annotation>javax.validation.constraints.NotBlank</annotation>
+							</requiredAnnotations>
+							<noFileComment>true</noFileComment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
