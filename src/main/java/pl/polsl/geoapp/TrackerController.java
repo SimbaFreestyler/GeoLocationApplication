@@ -1,5 +1,6 @@
 package pl.polsl.geoapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,9 +12,9 @@ import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.service.TrackerService;
 
 @RestController
-@RequestMapping("tracker")
+@RequestMapping("/tracker")
 public class TrackerController {
-    private TrackerService trackerService;
+    private final TrackerService trackerService;
 
     public TrackerController(TrackerService trackerService) {
         this.trackerService = trackerService;

@@ -88,7 +88,7 @@
 							</classPatterns>
 							<outputFileType>implementationFile</outputFileType>
 							<outputKind>module</outputKind>
-							<outputFile>../frontend/src/dto/dto.ts</outputFile>
+							<outputFile>../GeoLocationApplication/frontend/src/dto/dto.ts</outputFile>
 							<mapClasses>asInterfaces</mapClasses>
 							<noFileComment>false</noFileComment>
 							<sortDeclarations>true</sortDeclarations>
