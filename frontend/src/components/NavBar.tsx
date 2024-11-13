@@ -33,6 +33,11 @@ function NavBar() {
                 Mapa
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login-page">
+                Zaloguj się
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

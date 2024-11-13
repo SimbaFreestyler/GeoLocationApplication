@@ -25,7 +25,7 @@ function Map() {
   return (
     <>
       <div>
-        <h1>Map</h1>
+        <h1 className="title">Map</h1>
       </div>
       <div id="map" style={{ height: "600px", width: "100%" }}></div>
     </>
