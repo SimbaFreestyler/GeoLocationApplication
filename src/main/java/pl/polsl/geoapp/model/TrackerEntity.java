@@ -6,24 +6,20 @@ import jakarta.persistence.*;
 @Table(name = "tracker", schema = "geo")
 public class TrackerEntity {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tracker_generator")
-    @SequenceGenerator(
-            name = "tracker_generator",
-            sequenceName = "tracker_seq",
-            schema = "geo",
-            allocationSize = 1)
-    private Integer id;
+    private Integer serialNumber;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    public Integer getId() {
-        return id;
+    @Column
+    private String type;
+
+    public Integer getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public String getName() {
@@ -32,5 +28,13 @@ public class TrackerEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

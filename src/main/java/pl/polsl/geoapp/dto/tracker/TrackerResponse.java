@@ -3,16 +3,16 @@ package pl.polsl.geoapp.dto.tracker;
 import pl.polsl.geoapp.model.TrackerEntity;
 
 public class TrackerResponse {
-    private Integer id;
+    private Integer serialNumber;
 
     private String name;
 
-    public Integer getId() {
-        return id;
+    public Integer getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public String getName() {
@@ -25,7 +25,7 @@ public class TrackerResponse {
 
     public static TrackerResponse fromEntity(TrackerEntity entity){
         TrackerResponse dto = new TrackerResponse();
-        dto.setId(entity.getId());
+        dto.setSerialNumber(entity.getSerialNumber());
         dto.setName(entity.getName());
         return dto;
     }

@@ -1,16 +1,16 @@
 package pl.polsl.geoapp.dto.tracker;
 
 public class TrackerRequest {
-    private Integer id;
+    private Integer serialNumber;
 
     private String name;
 
-    public Integer getId() {
-        return id;
+    public Integer getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSerialNumber(Integer serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public String getName() {
