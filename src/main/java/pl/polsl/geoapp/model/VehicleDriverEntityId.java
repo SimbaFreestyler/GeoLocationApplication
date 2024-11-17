@@ -18,7 +18,7 @@ public class VehicleDriverEntityId {
   private DriverEntity driver;
 
   @Column
-  private LocalDate endDate;
+  private LocalDate startDate;
 
   public VehicleEntity getVehicle() {
     return vehicle;
@@ -36,11 +36,11 @@ public class VehicleDriverEntityId {
     this.driver = driver;
   }
 
-  public LocalDate getEndDate() {
-    return endDate;
+  public LocalDate getStartDate() {
+    return startDate;
   }
 
-  public void setEndDate(LocalDate endDate) {
-    this.endDate = endDate;
+  public void setStartDate(LocalDate endDate) {
+    this.startDate = endDate;
   }
 }

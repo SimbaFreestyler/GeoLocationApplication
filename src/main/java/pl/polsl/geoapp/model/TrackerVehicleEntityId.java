@@ -18,7 +18,7 @@ public class TrackerVehicleEntityId {
   private TrackerEntity tracker;
 
   @Column
-  private LocalDate endDate;
+  private LocalDate startDate;
 
   public VehicleEntity getVehicle() {
     return vehicle;
@@ -36,11 +36,11 @@ public class TrackerVehicleEntityId {
     this.tracker = tracker;
   }
 
-  public LocalDate getEndDate() {
-    return endDate;
+  public LocalDate getStartDate() {
+    return startDate;
   }
 
-  public void setEndDate(LocalDate endDate) {
-    this.endDate = endDate;
+  public void setStartDate(LocalDate endDate) {
+    this.startDate = endDate;
   }
 }

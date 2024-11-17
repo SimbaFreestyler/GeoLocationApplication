@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { request } from "./UrlData";
 import "../login.css";
-import classNames from "classnames";
+
+type Props = {
+  loggedState: string;
+  SetLoggedState: (state: string) => void;
+}
 
 type FormState = {
-  username: string;
+  email: string;
   password: string;
+  name: string;
+  surname: string;
 };
 
-function LoginForm() {
-  const [state, setState] = useState<string>("login");
+function LoginForm(props: Props) {
+  const [formState, setFormState] = useState<string>("login");
   const {
     register,
     handleSubmit,
@@ -18,25 +24,43 @@ function LoginForm() {
     reset,
   } = useForm<FormState>();
 
-  const onSubmit: SubmitHandler<FormState> = (data) => {
-    request("POST", "/login", data);
+  const onLoginSubmit: SubmitHandler<FormState> = (data) => {
+    request("POST", "/login", {
+      email: data.email,
+      password: data.password
+    }).then((response) => {
+      console.log(response.status);
+      props.SetLoggedState("loggedIn");
+    })
+  };
+
+  const onRegisterSubmit: SubmitHandler<FormState> = (data) => {
+    request("POST", "/register", {
+      email: data.email,
+      password: data.password,
+      name: data.name,
+      surname: data.surname
+    });
   };
 
   return (
-    state === "login" && (
+    formState === "login" && (
       <div className="login-container">
         <div className="login-box">
           <h1 className="title">Zaloguj się na swoje konto</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label className="label-font" htmlFor="username">
-              Nazwa użytkownika
+          <form onSubmit={handleSubmit(onLoginSubmit)}>
+            <label className="label-font" htmlFor="email">
+              Email
             </label>
             <input
               className="deep-input"
-              id="username"
-              {...register("username", {
-                required: true,
-                pattern: /^[a-zA-Z]+$/,
+              id="email"
+              {...register("email", {
+                required: "Adres e-mail jest wymagany",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Nieprawidłowy adres e-mail",
+                },
               })}
             />
             <label className="label-font" htmlFor="password">
@@ -48,26 +72,45 @@ function LoginForm() {
               {...register("password", { required: true })}
             />
             <input className="btn btn-primary" type="submit" value="Zaloguj" />
-            <button onClick={() => setState("register")} className="register-link">
+            <button onClick={() => setFormState("register")} className="register-link">
               Nie masz jeszcze konta? Zarejestruj się
             </button>
           </form>
         </div>
       </div>
     ) ||
-    state === "register" && (<div className="login-container">
+    formState === "register" && (<div className="login-container">
       <div className="login-box">
         <h1 className="title">Utwórz nowe konto</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label className="label-font" htmlFor="username">
-            Nazwa użytkownika
+        <form onSubmit={handleSubmit(onRegisterSubmit)}>
+        <label className="label-font" htmlFor="name">
+              Imię
+            </label>
+            <input
+              className="deep-input"
+              id="name"
+              {...register("name", { required: true })}
+            />
+            <label className="label-font" htmlFor="surname">
+              Nazwisko
+            </label>
+            <input
+              className="deep-input"
+              id="surname"
+              {...register("surname", { required: true })}
+            />
+          <label className="label-font" htmlFor="email">
+            Email
           </label>
           <input
             className="deep-input"
-            id="username"
-            {...register("username", {
-              required: true,
-              pattern: /^[a-zA-Z]+$/,
+            id="email"
+            {...register("email", {
+              required: "Adres e-mail jest wymagany",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Nieprawidłowy adres e-mail",
+              },
             })}
           />
           <label className="label-font" htmlFor="password">
@@ -79,7 +122,7 @@ function LoginForm() {
             {...register("password", { required: true })}
           />
           <input className="btn btn-primary" type="submit" value="Zarejestruj się" />
-          <button onClick={() => setState("login")} className="register-link">
+          <button onClick={() => setFormState("login")} className="register-link">
             Masz już konto? Zaloguj się
           </button>
         </form>

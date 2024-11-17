@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
 
-function NavBar() {
+type Props = {
+  loggedState: string;
+}
+
+function NavBar(props: Props) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark px-3">
       <div className="container-fluid">
@@ -28,16 +32,16 @@ function NavBar() {
                 Strona główna
               </Link>
             </li>
-            <li className="nav-item">
+            {props.loggedState === "loggedIn" && (<li className="nav-item">
               <Link className="nav-link" to="/map">
                 Mapa
               </Link>
-            </li>
-            <li className="nav-item">
+            </li>)}
+            {props.loggedState === "loggedOut" && (<li className="nav-item">
               <Link className="nav-link" to="/login-page">
                 Zaloguj się
               </Link>
-            </li>
+            </li>)}
           </ul>
         </div>
       </div>
