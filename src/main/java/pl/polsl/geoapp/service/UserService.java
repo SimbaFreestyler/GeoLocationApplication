@@ -1,8 +1,10 @@
 package pl.polsl.geoapp.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.polsl.geoapp.dto.driver.DriverRequest;
 import pl.polsl.geoapp.dto.user.UserDriverRequest;
 import pl.polsl.geoapp.dto.user.UserRequest;
 import pl.polsl.geoapp.dto.user.UserResponse;
@@ -18,12 +20,15 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final DriverService driverService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, DriverService driverService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.driverService = driverService;
     }
 
+    @Transactional
     public UserResponse register(UserDriverRequest request) {
         Optional<UserEntity> checkEntity = userRepository.findById(request.getEmail());
         if(checkEntity.isPresent()) {
@@ -33,7 +38,11 @@ public class UserService {
         entity.setEmail(request.getEmail());
         entity.setPassword(passwordEncoder.encode(CharBuffer.wrap(request.getPassword())));
         entity = userRepository.save(entity);
-
+        DriverRequest driverRequest = new DriverRequest();
+        driverRequest.setName(request.getName());
+        driverRequest.setSurname(request.getSurname());
+        driverRequest.setUser(entity);
+        driverService.createDriver(driverRequest);
         return fromEntity(entity);
     }
 
