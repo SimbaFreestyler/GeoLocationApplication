@@ -35,6 +35,7 @@ public class SecurityConfig {
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/tracker/gps-data").permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();

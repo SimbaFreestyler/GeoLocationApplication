@@ -2,10 +2,7 @@ package pl.polsl.geoapp.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.polsl.geoapp.dto.tracker.TrackerRequest;
 import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.service.TrackerService;
@@ -22,5 +19,10 @@ public class TrackerController {
     @PostMapping
     public ResponseEntity<TrackerResponse> createTracker(@RequestBody TrackerRequest request) {
         return new ResponseEntity<>(trackerService.createTracker(request), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/gps-data")
+    public void getGpsData() {
+        String test = "";
     }
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { request } from "./UrlData";
+import { request, setAuthToken } from "./UrlData";
 import "../login.css";
 
 type Props = {
@@ -30,6 +30,7 @@ function LoginForm(props: Props) {
       password: data.password
     }).then((response) => {
       console.log(response.status);
+      setAuthToken(response.data.token);
       props.SetLoggedState("loggedIn");
     })
   };
