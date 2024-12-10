@@ -8,7 +8,7 @@ import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.service.TrackerService;
 
 @RestController
-@RequestMapping("/tracker")
+@RequestMapping("")
 public class TrackerController {
     private final TrackerService trackerService;
 
@@ -21,7 +21,7 @@ public class TrackerController {
         return new ResponseEntity<>(trackerService.createTracker(request), HttpStatus.CREATED);
     }
 
-    @GetMapping("/gps-data")
+    @GetMapping("")
     public void getGpsData() {
         String test = "";
     }
