@@ -1,5 +1,6 @@
 package pl.polsl.geoapp.dto.driver;
 
+import pl.polsl.geoapp.dto.user.UserResponse;
 import pl.polsl.geoapp.model.UserEntity;
 
 public class DriverResponse {
@@ -9,7 +10,7 @@ public class DriverResponse {
 
     private String surname;
 
-    UserEntity user;
+    UserResponse user;
 
     public Integer getId() {
         return id;
@@ -35,11 +36,11 @@ public class DriverResponse {
         this.surname = surname;
     }
 
-    public UserEntity getUser() {
+    public UserResponse getUser() {
         return user;
     }
 
-    public void setUser(UserEntity user) {
+    public void setUser(UserResponse user) {
         this.user = user;
     }
 }

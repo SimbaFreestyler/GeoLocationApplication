@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { request, setAuthToken } from "./UrlData";
+import { request, setAuthToken } from "./requestConfig";
+import { useNavigate } from "react-router-dom";
 import "../login.css";
 
 type Props = {
@@ -23,15 +24,17 @@ function LoginForm(props: Props) {
     formState: { errors },
     reset,
   } = useForm<FormState>();
+  const navigate = useNavigate(); 
 
   const onLoginSubmit: SubmitHandler<FormState> = (data) => {
     request("POST", "/login", {
       email: data.email,
       password: data.password
-    }).then((response) => {
+    }).then((response) => { 
       console.log(response.status);
       setAuthToken(response.data.token);
       props.SetLoggedState("loggedIn");
+      navigate("/account");
     })
   };
 
@@ -42,6 +45,11 @@ function LoginForm(props: Props) {
       name: data.name,
       surname: data.surname
     });
+  };
+
+  const handleSwitchForm = (targetForm: string) => {
+    setFormState(targetForm);
+    reset();
   };
 
   return (
@@ -68,12 +76,16 @@ function LoginForm(props: Props) {
               Hasło
             </label>
             <input
+            type="password"
               className="deep-input"
               id="password"
               {...register("password", { required: true })}
             />
             <input className="btn btn-primary" type="submit" value="Zaloguj" />
-            <button onClick={() => setFormState("register")} className="register-link">
+            <button
+            type="button"
+            onClick={() => handleSwitchForm("register")}
+            className="register-link">
               Nie masz jeszcze konta? Zarejestruj się
             </button>
           </form>
@@ -118,12 +130,16 @@ function LoginForm(props: Props) {
             Hasło
           </label>
           <input
+            type="password"
             className="deep-input"
             id="password"
             {...register("password", { required: true })}
           />
           <input className="btn btn-primary" type="submit" value="Zarejestruj się" />
-          <button onClick={() => setFormState("login")} className="register-link">
+          <button
+          type="button"
+          onClick={() => handleSwitchForm("login")} 
+          className="register-link">
             Masz już konto? Zaloguj się
           </button>
         </form>

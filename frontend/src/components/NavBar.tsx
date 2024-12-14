@@ -37,6 +37,11 @@ function NavBar(props: Props) {
                 Mapa
               </Link>
             </li>)}
+            {props.loggedState === "loggedIn" && (<li className="nav-item">
+              <Link className="nav-link" to="/account">
+                Moje konto
+              </Link>
+            </li>)}
             {props.loggedState === "loggedOut" && (<li className="nav-item">
               <Link className="nav-link" to="/login-page">
                 Zaloguj się
