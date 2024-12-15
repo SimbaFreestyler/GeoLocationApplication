@@ -7,6 +7,8 @@ public class TrackerResponse {
 
     private String name;
 
+    private String type;
+
     public Integer getSerialNumber() {
         return serialNumber;
     }
@@ -23,10 +25,19 @@ public class TrackerResponse {
         this.name = name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public static TrackerResponse fromEntity(TrackerEntity entity){
         TrackerResponse dto = new TrackerResponse();
         dto.setSerialNumber(entity.getSerialNumber());
         dto.setName(entity.getName());
+        dto.setType(entity.getType());
         return dto;
     }
 }

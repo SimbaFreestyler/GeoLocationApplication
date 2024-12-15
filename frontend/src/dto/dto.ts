@@ -11,7 +11,7 @@ export interface DriverResponse {
   id: number | null;
   name: string | null;
   surname: string | null;
-  user: UserEntity | null;
+  user: UserResponse | null;
 }
 
 export interface ErrorResponse {
@@ -26,6 +26,7 @@ export interface TrackerRequest {
 export interface TrackerResponse {
   name: string | null;
   serialNumber: number | null;
+  type: string | null;
 }
 
 export interface UserDriverRequest {
@@ -48,4 +49,11 @@ export interface UserRequest {
 export interface UserResponse {
   email: string | null;
   token: string | null;
+}
+
+export interface VehicleResponse {
+  brand: string | null;
+  model: string | null;
+  registrationNumber: string | null;
+  vinNumber: string | null;
 }
