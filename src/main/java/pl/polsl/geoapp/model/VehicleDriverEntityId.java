@@ -10,11 +10,11 @@ import java.time.LocalDate;
 @Embeddable
 public class VehicleDriverEntityId {
   @ManyToOne
-  @JoinColumn(name = "vehicle_id")
+  @JoinColumn(name = "vehicle_id", referencedColumnName = "registration_number")
   private VehicleEntity vehicle;
 
   @ManyToOne
-  @JoinColumn(name = "driver_id")
+  @JoinColumn(name = "driver_id", referencedColumnName = "id")
   private DriverEntity driver;
 
   @Column

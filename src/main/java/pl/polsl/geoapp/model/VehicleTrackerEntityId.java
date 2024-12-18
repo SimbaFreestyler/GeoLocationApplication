@@ -8,13 +8,13 @@ import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Embeddable
-public class TrackerVehicleEntityId {
+public class VehicleTrackerEntityId {
   @ManyToOne
-  @JoinColumn(name = "vehicle_id")
+  @JoinColumn(name = "vehicle_id", referencedColumnName = "registration_number")
   private VehicleEntity vehicle;
 
   @ManyToOne
-  @JoinColumn(name = "tracker_id")
+  @JoinColumn(name = "tracker_id", referencedColumnName = "serial_number")
   private TrackerEntity tracker;
 
   @Column

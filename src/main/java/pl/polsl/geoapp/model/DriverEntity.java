@@ -2,6 +2,8 @@ package pl.polsl.geoapp.model;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "driver", schema = "adm")
 public class DriverEntity {
@@ -24,6 +26,9 @@ public class DriverEntity {
   @OneToOne
   @JoinColumn(name = "user_id")
   UserEntity user;
+
+  @OneToMany(mappedBy = "driver_id", fetch = FetchType.LAZY)
+  private Set<VehicleDriverEntity> vehicleDrivers;
 
   public Integer getId() {
     return id;
@@ -55,5 +60,13 @@ public class DriverEntity {
 
   public void setUser(UserEntity user) {
     this.user = user;
+  }
+
+  public Set<VehicleDriverEntity> getVehicleDrivers() {
+    return vehicleDrivers;
+  }
+
+  public void setVehicleDrivers(Set<VehicleDriverEntity> vehicleDrivers) {
+    this.vehicleDrivers = vehicleDrivers;
   }
 }

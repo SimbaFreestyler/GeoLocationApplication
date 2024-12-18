@@ -2,12 +2,14 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { request } from "./requestConfig";
 import "../css/form.css";
+import { createVehicle } from "../actions/vehicles";
+import { VehicleRequest } from "../dto/dto";
 
 type FormState = {
   brand: string;
   model: string;
   registrationNumber: string;
-  vin: string;
+  vinNumber: string;
 };
 
 type Props = {
@@ -23,17 +25,25 @@ function AddVehicleForm({onClose}: Props) {
     reset,
   } = useForm<FormState>();
 
-  const onAddVehicleSubmit: SubmitHandler<FormState> = (data) => {
-    request("POST", "/vehicle", {
+  const onAddVehicleSubmit: SubmitHandler<FormState> = async (data) => {
+    const vehicleRequest: VehicleRequest = {
       brand: data.brand,
       model: data.model,
       registrationNumber: data.registrationNumber,
-      vin: data.vin
-    }).then((response) => {
-      console.log(response.status);
-      reset();
-    });
+      vinNumber: data.vinNumber,
   };
+
+  const createdVehicle = await createVehicle(vehicleRequest);
+
+  if (createdVehicle) {
+      console.log("Vehicle created successfully:", createdVehicle);
+      onClose();
+      reset();
+  } else {
+      console.error("Failed to create vehicle.");
+  
+  };
+}
 
   return (
     formState === "addVehicle" && (
@@ -65,13 +75,13 @@ function AddVehicleForm({onClose}: Props) {
               id="registrationNumber"
               {...register("registrationNumber", { required: "Tablica rejestracyjna jest wymagana" })}
             />
-            <label className="form-label" htmlFor="vin">
+            <label className="form-label" htmlFor="vinNumber">
               VIN
             </label>
             <input
               className="form-input"
-              id="vin"
-              {...register("vin", { required: "VIN jest wymagany" })}
+              id="vinNumber"
+              {...register("vinNumber", { required: "VIN jest wymagany" })}
             />
             <input className="form-btn add" type="submit" value="Dodaj pojazd" />
             <input className="form-btn delete" type="button" value="Anuluj" onClick={() => onClose()}/>

@@ -1,5 +1,12 @@
+import { request } from "../components/requestConfig";
 import { TrackerRequest, TrackerResponse } from "../dto/dto";
 
-function createTracker(body: TrackerRequest) {
-    fetch("http://localhost:8080/tracker")
+export async function createTracker(vehicle: TrackerRequest): Promise<TrackerResponse | null> {
+    try {
+        const response = await request("POST", "/tracker", vehicle);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating tracker:", error);
+        return null;
+    }
 }

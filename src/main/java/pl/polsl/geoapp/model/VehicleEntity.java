@@ -1,19 +1,17 @@
 package pl.polsl.geoapp.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "vehicle", schema = "veh")
 public class VehicleEntity {
   @Id
-  @Column
+  @Column(name = "registration_number")
   private String registrationNumber;
 
-  @Column
+  @Column(name = "vin_number")
   private String vinNumber;
 
   @Column
@@ -21,6 +19,12 @@ public class VehicleEntity {
 
   @Column
   private String model;
+
+  @OneToMany(mappedBy = "vehicle_id", fetch = FetchType.LAZY)
+  private Set<VehicleDriverEntity> vehicleDrivers;
+
+  @OneToMany(mappedBy = "vehicle_id", fetch = FetchType.LAZY)
+  private Set<VehicleTrackerEntity> vehicleTrackers;
 
   public String getRegistrationNumber() {
     return registrationNumber;
@@ -52,5 +56,21 @@ public class VehicleEntity {
 
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public Set<VehicleDriverEntity> getVehicleDrivers() {
+    return vehicleDrivers;
+  }
+
+  public void setVehicleDrivers(Set<VehicleDriverEntity> vehicleDrivers) {
+    this.vehicleDrivers = vehicleDrivers;
+  }
+
+  public Set<VehicleTrackerEntity> getVehicleTrackers() {
+    return vehicleTrackers;
+  }
+
+  public void setVehicleTrackers(Set<VehicleTrackerEntity> vehicleTrackers) {
+    this.vehicleTrackers = vehicleTrackers;
   }
 }

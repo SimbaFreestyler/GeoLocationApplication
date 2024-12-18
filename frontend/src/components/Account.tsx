@@ -112,7 +112,7 @@ function Account() {
                 setAddTrackerFormVisible(true);
               }}
             >
-              Dodaj lokazlizator
+              Dodaj lokalizator
             </button>
           </div>
         </div>

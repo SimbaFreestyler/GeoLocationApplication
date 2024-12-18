@@ -1,6 +1,6 @@
-package pl.polsl.geoapp.dto.tracker;
+package pl.polsl.geoapp.dto.location;
 
-public class TrackerRequest {
+public class LocationResponse {
     private String serialNumber;
 
     private String name;

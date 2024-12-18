@@ -8,19 +8,19 @@ import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tracker_vehicle", schema = "geo")
-public class TrackerVehicleEntity {
+@Table(name = "vehicle_tracker", schema = "geo")
+public class VehicleTrackerEntity {
   @EmbeddedId
-  private TrackerVehicleEntityId id;
+  private VehicleTrackerEntityId id;
 
   @Column
   private LocalDate endDate;
 
-  public TrackerVehicleEntityId getId() {
+  public VehicleTrackerEntityId getId() {
     return id;
   }
 
-  public void setId(TrackerVehicleEntityId id) {
+  public void setId(VehicleTrackerEntityId id) {
     this.id = id;
   }
 

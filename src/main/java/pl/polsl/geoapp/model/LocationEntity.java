@@ -1,12 +1,6 @@
 package pl.polsl.geoapp.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -26,6 +20,10 @@ public class LocationEntity {
   @Column
   private LocalDateTime timestamp;
 
+  @ManyToOne
+  @JoinColumn(name = "tracker_id", referencedColumnName = "serial_number")
+  private TrackerEntity tracker;
+
   public Integer getId() {
     return id;
   }
@@ -40,5 +38,13 @@ public class LocationEntity {
 
   public void setTimestamp(LocalDateTime timestamp) {
     this.timestamp = timestamp;
+  }
+
+  public TrackerEntity getTracker() {
+    return tracker;
+  }
+
+  public void setTracker(TrackerEntity tracker) {
+    this.tracker = tracker;
   }
 }

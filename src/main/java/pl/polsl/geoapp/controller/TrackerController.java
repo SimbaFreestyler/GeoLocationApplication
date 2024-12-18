@@ -16,13 +16,13 @@ public class TrackerController {
         this.trackerService = trackerService;
     }
 
-    @PostMapping
+    @PostMapping("/tracker")
     public ResponseEntity<TrackerResponse> createTracker(@RequestBody TrackerRequest request) {
         return new ResponseEntity<>(trackerService.createTracker(request), HttpStatus.CREATED);
     }
 
     @GetMapping("")
     public void getGpsData() {
-        String test = "";
+
     }
 }

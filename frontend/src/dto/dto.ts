@@ -20,12 +20,13 @@ export interface ErrorResponse {
 
 export interface TrackerRequest {
   name: string | null;
-  serialNumber: number | null;
+  serialNumber: string | null;
+  type: string | null;
 }
 
 export interface TrackerResponse {
   name: string | null;
-  serialNumber: number | null;
+  serialNumber: string | null;
   type: string | null;
 }
 
@@ -49,6 +50,13 @@ export interface UserRequest {
 export interface UserResponse {
   email: string | null;
   token: string | null;
+}
+
+export interface VehicleRequest {
+  brand: string | null;
+  model: string | null;
+  registrationNumber: string | null;
+  vinNumber: string | null;
 }
 
 export interface VehicleResponse {

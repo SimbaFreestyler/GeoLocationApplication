@@ -18,8 +18,10 @@ public class TrackerService {
     @Transactional
     public TrackerResponse createTracker(TrackerRequest request) {
         TrackerEntity entity = new TrackerEntity();
+        entity.setSerialNumber(request.getSerialNumber());
         entity.setName(request.getName());
+        entity.setType(request.getType());
         trackerRepository.save(entity);
-        return TrackerResponse.fromEntity(entity);
+        return TrackerResponse.fromEntity(trackerRepository.save(entity));
     }
 }

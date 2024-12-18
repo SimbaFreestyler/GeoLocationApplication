@@ -3,17 +3,17 @@ package pl.polsl.geoapp.dto.tracker;
 import pl.polsl.geoapp.model.TrackerEntity;
 
 public class TrackerResponse {
-    private Integer serialNumber;
+    private String serialNumber;
 
     private String name;
 
     private String type;
 
-    public Integer getSerialNumber() {
+    public String getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(Integer serialNumber) {
+    public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
 

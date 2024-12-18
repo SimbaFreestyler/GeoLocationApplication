@@ -2,6 +2,8 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { request } from "./requestConfig";
 import "../css/form.css";
+import { createTracker } from "../actions/trackers";
+import { TrackerRequest } from "../dto/dto";
 
 type FormState = {
   name: string;
@@ -22,15 +24,23 @@ function AddTrackerForm({ onClose }: Props) {
     reset,
   } = useForm<FormState>();
 
-  const onAddVehicleSubmit: SubmitHandler<FormState> = (data) => {
-    request("POST", "/tracker", {
-      name: data.name,
-      serialNumber: data.serialNumber,
-      type: data.type,
-    }).then((response) => {
-      console.log(response.status);
-      reset();
-    });
+  const onAddVehicleSubmit: SubmitHandler<FormState> = async (data) => {
+    const trackerRequest: TrackerRequest = {
+          serialNumber: data.serialNumber,
+          name: data.name,
+          type: data.type,
+      };
+    
+      const createdTracker = await createTracker(trackerRequest);
+    
+      if (createdTracker) {
+          console.log("Tracker created successfully:", createdTracker);
+          onClose();
+          reset();
+      } else {
+          console.error("Failed to create tracker.");
+      
+      };
   };
 
   return (

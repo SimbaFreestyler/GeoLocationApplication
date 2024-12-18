@@ -1,8 +1,7 @@
 package pl.polsl.geoapp.dto.vehicle;
 
-import pl.polsl.geoapp.model.VehicleEntity;
+public class VehicleRequest {
 
-public class VehicleResponse {
     private String registrationNumber;
 
     private String vinNumber;
@@ -41,14 +40,5 @@ public class VehicleResponse {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public static VehicleResponse fromEntity(VehicleEntity entity) {
-        VehicleResponse response = new VehicleResponse();
-        response.setRegistrationNumber(entity.getRegistrationNumber());
-        response.setVinNumber(entity.getVinNumber());
-        response.setBrand(entity.getBrand());
-        response.setModel(entity.getModel());
-        return response;
     }
 }
