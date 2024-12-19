@@ -2,38 +2,33 @@ package pl.polsl.geoapp.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-
 import java.time.LocalDate;
 
 @Embeddable
 public class VehicleDriverEntityId {
-  @ManyToOne
-  @JoinColumn(name = "vehicle_id", referencedColumnName = "registration_number")
-  private VehicleEntity vehicle;
+  @Column(name = "vehicle_id")
+  private String vehicleId;
 
-  @ManyToOne
-  @JoinColumn(name = "driver_id", referencedColumnName = "id")
-  private DriverEntity driver;
+  @Column(name = "driver_id")
+  private Integer driverId;
 
-  @Column
+  @Column(name = "start_date")
   private LocalDate startDate;
 
-  public VehicleEntity getVehicle() {
-    return vehicle;
+  public String getVehicleId() {
+    return vehicleId;
   }
 
-  public void setVehicle(VehicleEntity vehicle) {
-    this.vehicle = vehicle;
+  public void setVehicleId(String vehicleId) {
+    this.vehicleId = vehicleId;
   }
 
-  public DriverEntity getDriver() {
-    return driver;
+  public Integer getDriverId() {
+    return driverId;
   }
 
-  public void setDriver(DriverEntity driver) {
-    this.driver = driver;
+  public void setDriverId(Integer driverId) {
+    this.driverId = driverId;
   }
 
   public LocalDate getStartDate() {

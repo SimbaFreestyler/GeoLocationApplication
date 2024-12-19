@@ -1,9 +1,6 @@
 package pl.polsl.geoapp.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +9,14 @@ import java.time.LocalDate;
 public class VehicleTrackerEntity {
   @EmbeddedId
   private VehicleTrackerEntityId id;
+
+  @ManyToOne
+  @JoinColumn(name = "vehicle_id", insertable = false, updatable = false)
+  private VehicleEntity vehicle;
+
+  @ManyToOne
+  @JoinColumn(name = "tracker_id", insertable = false, updatable = false)
+  private TrackerEntity tracker;
 
   @Column
   private LocalDate endDate;
@@ -30,5 +35,21 @@ public class VehicleTrackerEntity {
 
   public void setEndDate(LocalDate endDate) {
     this.endDate = endDate;
+  }
+
+  public VehicleEntity getVehicle() {
+    return vehicle;
+  }
+
+  public void setVehicle(VehicleEntity vehicle) {
+    this.vehicle = vehicle;
+  }
+
+  public TrackerEntity getTracker() {
+    return tracker;
+  }
+
+  public void setTracker(TrackerEntity tracker) {
+    this.tracker = tracker;
   }
 }

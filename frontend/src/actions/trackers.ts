@@ -10,3 +10,13 @@ export async function createTracker(vehicle: TrackerRequest): Promise<TrackerRes
         return null;
     }
 }
+
+export async function getTrackers(): Promise<TrackerResponse[] | null> {
+    try {
+        const response = await request("GET", "/tracker");
+        return response.data;
+    } catch (error) {
+        console.error("Error getting trackers:", error);
+        return null;
+    }
+}

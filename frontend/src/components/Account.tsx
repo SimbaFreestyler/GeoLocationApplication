@@ -1,48 +1,59 @@
 import { useEffect, useState } from "react";
-import { DriverResponse, VehicleResponse, TrackerResponse } from "../dto/dto";
+import { DriverResponse, VehicleResponse, TrackerResponse, VehicleTrackerResponse } from "../dto/dto";
 import { getDriverData } from "../actions/drivers";
 import AddVehicleForm from "./AddVehicleForm";
 import AddTrackerForm from "./AddTrackerForm";
 import "../css/account.css";
+import AddVehicleTrackerForm from "./AddVehicleTrackerForm";
+import { getVehicleTrackers } from "../actions/vehicles";
 
 function Account() {
   const [driverData, setDriverData] = useState<DriverResponse | null>(null);
   const [vehicleData, setVehicleData] = useState<VehicleResponse[] | null>(
     null
   );
-  const [trackerData, setTrackerData] = useState<TrackerResponse[] | null>(
+  const [vehicleTrackers, setVehicleTrackers] = useState<VehicleTrackerResponse[] | null>(
     null
   );
   const [addVehicleFormVisible, setAddVehicleFormVisible] =
     useState<boolean>(false);
-  const [addTrackerFormVisible, setAddTrackerFormVisible] =
+  const [addVehicleTrackerFormVisible, setAddVehicleTrackerFormVisible] =
     useState<boolean>(false);
 
   const loadDriverData = async () => {
     try {
       const data = await getDriverData();
       setDriverData(data);
-      console.log(data);
     } catch (err) {
       console.error("Error fetching driver data:", err);
       setDriverData(null);
     }
   };
 
+  const loadVehicleTrackerData = async () => {
+      const data = await getVehicleTrackers();
+      setVehicleTrackers(data);
+    };
+
   useEffect(() => {
     loadDriverData();
+    loadVehicleTrackerData()
+    console.log(vehicleTrackers);
   }, []);
 
   return (
     <>
       {addVehicleFormVisible && (
         <div className="modal-overlay">
-          <AddVehicleForm onClose={() => setAddVehicleFormVisible(false)} />
+          <AddVehicleForm onClose={() => {
+            setAddVehicleFormVisible(false);
+            loadVehicleTrackerData();
+          }}/>
         </div>
       )}
-      {addTrackerFormVisible && (
+      {addVehicleTrackerFormVisible && (
         <div className="modal-overlay">
-          <AddTrackerForm onClose={() => setAddTrackerFormVisible(false)} />
+          <AddVehicleTrackerForm onClose={() => setAddVehicleTrackerFormVisible(false)} />
         </div>
       )}
       <div className="user-container">
@@ -67,7 +78,7 @@ function Account() {
             )}
           </div>
           <div className="vehicle-list">
-            <h2 className="label-font">Lista pojazdów</h2>
+            <h2 className="label-font">Użytkowane pojazdy</h2>
             {vehicleData?.length ? (
               <ul>
                 {vehicleData.map((vehicle: VehicleResponse) => (
@@ -92,24 +103,26 @@ function Account() {
             </button>
           </div>
           <div className="tracker-list">
-            <h2 className="label-font">Lista lokalizatorów</h2>
-            {trackerData?.length ? (
+            <h2 className="label-font">Lokalizatory w pojazdach</h2>
+            {vehicleTrackers?.length ? (
               <ul>
-                {trackerData.map((tracker: TrackerResponse) => (
-                  <li key={tracker.serialNumber}>
-                    <strong>Nr seryjny:</strong> {tracker.serialNumber} |
-                    <strong>Nazwa:</strong> {tracker.name} |
-                    <strong>Typ:</strong> {tracker.type}
-                  </li>
-                ))}
-              </ul>
+              {vehicleTrackers.map((tracker: VehicleTrackerResponse) => (
+                <li key={`${tracker.tracker?.serialNumber}-${tracker.vehicle?.registrationNumber}`}>
+                    <strong>Pojazd:</strong> {tracker.vehicle?.brand} {tracker.vehicle?.model} - {tracker.vehicle?.registrationNumber}
+                    <br></br>
+                    <strong>Lokalizator:</strong> {tracker.tracker?.name} - {tracker.tracker?.serialNumber}
+                    <br></br>
+                  <strong>Okres:</strong> {tracker.startDate || "N/A"} - {tracker.endDate || "N/A"}
+                </li>
+              ))}
+            </ul>
             ) : (
               <p className="label-font">Brak lokalizatorów.</p>
             )}
             <button
               className="add-button"
               onClick={() => {
-                setAddTrackerFormVisible(true);
+                setAddVehicleTrackerFormVisible(true);
               }}
             >
               Dodaj lokalizator

@@ -7,6 +7,8 @@ import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.model.TrackerEntity;
 import pl.polsl.geoapp.repository.TrackerRepository;
 
+import java.util.stream.StreamSupport;
+
 @Service
 public class TrackerService {
     private final TrackerRepository trackerRepository;
@@ -23,5 +25,12 @@ public class TrackerService {
         entity.setType(request.getType());
         trackerRepository.save(entity);
         return TrackerResponse.fromEntity(trackerRepository.save(entity));
+    }
+
+    @Transactional
+    public TrackerResponse[] getTrackers() {
+        return StreamSupport.stream(trackerRepository.findAll().spliterator(), false)
+                .map(TrackerResponse::fromEntity)
+                .toArray(TrackerResponse[]::new);
     }
 }

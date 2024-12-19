@@ -1,10 +1,15 @@
 package pl.polsl.geoapp.dto.tracker;
 
+import javax.validation.constraints.NotNull;
+
 public class TrackerRequest {
+    @NotNull
     private String serialNumber;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String type;
 
     public String getSerialNumber() {

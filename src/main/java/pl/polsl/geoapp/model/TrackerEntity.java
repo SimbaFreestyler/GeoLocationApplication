@@ -17,10 +17,10 @@ public class TrackerEntity {
     @Column
     private String type;
 
-    @OneToMany(mappedBy = "tracker_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tracker", fetch = FetchType.LAZY)
     private List<LocationEntity> locations;
 
-    @OneToMany(mappedBy = "tracker_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tracker", fetch = FetchType.LAZY)
     private List<VehicleTrackerEntity> vehicleTrackers;
 
     public String getSerialNumber() {

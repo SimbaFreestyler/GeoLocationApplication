@@ -21,6 +21,11 @@ public class TrackerController {
         return new ResponseEntity<>(trackerService.createTracker(request), HttpStatus.CREATED);
     }
 
+    @GetMapping("/tracker")
+    public ResponseEntity<TrackerResponse[]> getTrackers() {
+        return ResponseEntity.ok(trackerService.getTrackers());
+    }
+
     @GetMapping("")
     public void getGpsData() {
 

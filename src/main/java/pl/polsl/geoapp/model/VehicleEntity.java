@@ -20,10 +20,10 @@ public class VehicleEntity {
   @Column
   private String model;
 
-  @OneToMany(mappedBy = "vehicle_id", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY)
   private Set<VehicleDriverEntity> vehicleDrivers;
 
-  @OneToMany(mappedBy = "vehicle_id", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY)
   private Set<VehicleTrackerEntity> vehicleTrackers;
 
   public String getRegistrationNumber() {

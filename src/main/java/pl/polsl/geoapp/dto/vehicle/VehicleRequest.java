@@ -1,13 +1,18 @@
 package pl.polsl.geoapp.dto.vehicle;
 
-public class VehicleRequest {
+import javax.validation.constraints.NotNull;
 
+public class VehicleRequest {
+    @NotNull
     private String registrationNumber;
 
+    @NotNull
     private String vinNumber;
 
+    @NotNull
     private String brand;
 
+    @NotNull
     private String model;
 
     public String getRegistrationNumber() {

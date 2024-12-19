@@ -23,7 +23,7 @@ const isTokenExpired = (token: string): boolean => {
     }
 };
 
-export const request = (method: string, url: string, data: object) => {
+export const request = (method: string, url: string, data?: object) => {
     let headers = {};
 
     
@@ -42,6 +42,6 @@ export const request = (method: string, url: string, data: object) => {
         method: method,
         headers: headers,
         url: url,
-        data: data
+        ...(data && { data })
     })
 }

@@ -27,7 +27,7 @@ public class DriverEntity {
   @JoinColumn(name = "user_id")
   UserEntity user;
 
-  @OneToMany(mappedBy = "driver_id", fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
   private Set<VehicleDriverEntity> vehicleDrivers;
 
   public Integer getId() {
