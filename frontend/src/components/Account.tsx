@@ -53,7 +53,10 @@ function Account() {
       )}
       {addVehicleTrackerFormVisible && (
         <div className="modal-overlay">
-          <AddVehicleTrackerForm onClose={() => setAddVehicleTrackerFormVisible(false)} />
+          <AddVehicleTrackerForm onClose={() => {
+            setAddVehicleTrackerFormVisible(false);
+            loadVehicleTrackerData();
+          }} />
         </div>
       )}
       <div className="user-container">

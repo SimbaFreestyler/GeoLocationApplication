@@ -13,11 +13,13 @@ body, html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding-top: 120px;
 }
 
 .login-box {
   width: 100%;
   max-width: 600px;
+  min-width: 150px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.11);
   border-radius: 8px;
@@ -74,6 +76,9 @@ body, html {
 
 .btn-primary {
   float: right;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .register-link {
     background: none;
@@ -85,7 +90,7 @@ body, html {
   font-size: 1em;
   margin-top: 10px;
   display: block;
-  text-align: right;
+  text-align: left;
   }
   
   .register-link:hover {

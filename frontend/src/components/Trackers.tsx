@@ -24,7 +24,10 @@ function Trackers() {
     <>
       {addTrackerFormVisible && (
         <div className="modal-overlay">
-          <AddTrackerForm onClose={() => setAddTrackerFormVisible(false)} />
+          <AddTrackerForm onClose={() => {
+            setAddTrackerFormVisible(false);
+            loadTrackerData();
+            }} />
         </div>
       )}
       <div className="tracker-list">

@@ -33,13 +33,13 @@
   font-size: 1.1rem;
 }
 
-/* Styl logowania i kontenera */
 .user-container {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .user-box {
@@ -51,8 +51,6 @@
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   min-height: 60vh;
-  position: relative;
-  top: -100px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
