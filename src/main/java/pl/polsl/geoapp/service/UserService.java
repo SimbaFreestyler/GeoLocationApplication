@@ -5,8 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.polsl.geoapp.config.UserAuthProvider;
-import pl.polsl.geoapp.dto.driver.DriverRequest;
-import pl.polsl.geoapp.dto.user.UserDriverRequest;
 import pl.polsl.geoapp.dto.user.UserRequest;
 import pl.polsl.geoapp.dto.user.UserResponse;
 import pl.polsl.geoapp.exceptions.AppException;
@@ -32,21 +30,15 @@ public class UserService {
     }
 
     @Transactional
-    public UserResponse register(UserDriverRequest request) {
+    public UserResponse register(UserRequest request) {
         Optional<UserEntity> checkEntity = userRepository.findById(request.getEmail());
         if(checkEntity.isPresent()) {
-            throw new AppException("Account related to this account already exists", HttpStatus.BAD_REQUEST);
+            throw new AppException("Account related to this email already exists", HttpStatus.BAD_REQUEST);
         }
         UserEntity entity = new UserEntity();
         entity.setEmail(request.getEmail());
         entity.setPassword(passwordEncoder.encode(CharBuffer.wrap(request.getPassword())));
-        entity = userRepository.save(entity);
-        DriverRequest driverRequest = new DriverRequest();
-        driverRequest.setName(request.getName());
-        driverRequest.setSurname(request.getSurname());
-        driverRequest.setUser(entity);
-        driverService.createDriver(driverRequest);
-        return fromEntity(entity);
+        return fromEntity(userRepository.save(entity));
     }
 
     public UserResponse login(UserRequest request) {

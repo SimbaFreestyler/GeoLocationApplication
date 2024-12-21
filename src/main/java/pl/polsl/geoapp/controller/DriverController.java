@@ -3,11 +3,10 @@ package pl.polsl.geoapp.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pl.polsl.geoapp.dto.driver.DriverRequest;
 import pl.polsl.geoapp.dto.driver.DriverResponse;
+import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.dto.user.UserResponse;
 import pl.polsl.geoapp.service.DriverService;
 
@@ -20,9 +19,15 @@ public class DriverController {
         this.driverService = driverService;
     }
 
-    @GetMapping("")
-    public ResponseEntity<DriverResponse> getDriver(Authentication auth) {
+    @PostMapping("")
+    public ResponseEntity<DriverResponse> createDriver(@RequestBody DriverRequest request, Authentication auth) {
         UserResponse user = (UserResponse) auth.getPrincipal();
-        return ResponseEntity.ok(driverService.getDriver(user.getEmail()));
+        return new ResponseEntity<>(driverService.createDriver(request, user.getEmail()), HttpStatus.CREATED);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<DriverResponse[]> getDrivers(Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return ResponseEntity.ok(driverService.getDrivers(user.getEmail()));
     }
 }

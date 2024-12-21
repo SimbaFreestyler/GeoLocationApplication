@@ -9,6 +9,7 @@ import Account from "./components/Account";
 import { useState } from "react";
 import Vehicles from "./components/Vehicles";
 import Trackers from "./components/Trackers";
+import Drivers from "./components/Drivers";
 
 function App() {
   const [loggedState, SetLoggedState] = useState<string>("loggedOut");
@@ -20,8 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/map" element={<Map />} />
-        <Route path="/vehicle" element={<Vehicles />} />
-        <Route path="/tracker" element={<Trackers />} />
+        <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/drivers" element={<Drivers />} />
+        <Route path="/trackers" element={<Trackers />} />
         <Route path="/account" element={<Account />} />
         <Route path="/login-page" element={<LoginForm loggedState={loggedState} SetLoggedState={SetLoggedState}/>} />
       </Routes>

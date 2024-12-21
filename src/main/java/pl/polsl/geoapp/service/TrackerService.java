@@ -29,7 +29,7 @@ public class TrackerService {
 
     @Transactional
     public TrackerResponse[] getTrackers() {
-        return StreamSupport.stream(trackerRepository.findAll().spliterator(), false)
+        return trackerRepository.findAll().stream()
                 .map(TrackerResponse::fromEntity)
                 .toArray(TrackerResponse[]::new);
     }

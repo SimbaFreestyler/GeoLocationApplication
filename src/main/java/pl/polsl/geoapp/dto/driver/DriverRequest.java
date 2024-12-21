@@ -7,8 +7,6 @@ public class DriverRequest {
 
     private String surname;
 
-    UserEntity user;
-
     public String getName() {
         return name;
     }
@@ -23,13 +21,5 @@ public class DriverRequest {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
     }
 }

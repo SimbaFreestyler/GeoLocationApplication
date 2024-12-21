@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { request } from "./requestConfig";
 import "../css/form.css";
 import { createVehicle } from "../actions/vehicles";
 import { VehicleRequest } from "../dto/dto";

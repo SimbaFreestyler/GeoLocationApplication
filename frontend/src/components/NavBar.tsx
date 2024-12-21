@@ -38,12 +38,17 @@ function NavBar(props: Props) {
               </Link>
             </li>)}
             {props.loggedState === "loggedIn" && (<li className="nav-item">
-              <Link className="nav-link" to="/vehicle">
+              <Link className="nav-link" to="/vehicles">
                 Pojazdy
               </Link>
             </li>)}
             {props.loggedState === "loggedIn" && (<li className="nav-item">
-              <Link className="nav-link" to="/tracker">
+              <Link className="nav-link" to="/drivers">
+                Kierowcy
+              </Link>
+            </li>)}
+            {props.loggedState === "loggedIn" && (<li className="nav-item">
+              <Link className="nav-link" to="/trackers">
                 Lokalizatory
               </Link>
             </li>)}

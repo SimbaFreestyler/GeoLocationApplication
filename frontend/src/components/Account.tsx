@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { DriverResponse, VehicleResponse, TrackerResponse, VehicleTrackerResponse } from "../dto/dto";
-import { getDriverData } from "../actions/drivers";
+import { VehicleResponse, VehicleTrackerResponse, UserResponse } from "../dto/dto";
 import AddVehicleForm from "./AddVehicleForm";
 import AddTrackerForm from "./AddTrackerForm";
 import "../css/account.css";
 import AddVehicleTrackerForm from "./AddVehicleTrackerForm";
 import { getVehicleTrackers } from "../actions/vehicles";
+import { getUserData } from "../actions/users";
 
 function Account() {
-  const [driverData, setDriverData] = useState<DriverResponse | null>(null);
   const [vehicleData, setVehicleData] = useState<VehicleResponse[] | null>(
     null
   );
+  const [userData, setUserData] = useState<UserResponse | null>(null);
+
   const [vehicleTrackers, setVehicleTrackers] = useState<VehicleTrackerResponse[] | null>(
     null
   );
@@ -20,23 +21,23 @@ function Account() {
   const [addVehicleTrackerFormVisible, setAddVehicleTrackerFormVisible] =
     useState<boolean>(false);
 
-  const loadDriverData = async () => {
-    try {
-      const data = await getDriverData();
-      setDriverData(data);
-    } catch (err) {
-      console.error("Error fetching driver data:", err);
-      setDriverData(null);
-    }
-  };
-
   const loadVehicleTrackerData = async () => {
       const data = await getVehicleTrackers();
       setVehicleTrackers(data);
     };
 
+    const loadUserData = async () => {
+    try {
+      const data = await getUserData();
+      setUserData(data);
+    } catch (err) {
+      console.error("Error fetching user data:", err);
+      setUserData(null);
+    }
+  };
+
   useEffect(() => {
-    loadDriverData();
+    loadUserData();
     loadVehicleTrackerData()
     console.log(vehicleTrackers);
   }, []);
@@ -63,17 +64,11 @@ function Account() {
         <div className="user-box">
           <h1 className="title">Panel użytkownika</h1>
           <div className="account-info">
-            {driverData ? (
+            {userData ? (
               <>
                 <h2 className="label-font">Dane konta</h2>
                 <p className="label-font">
-                  <strong>Imię:</strong> {driverData.name}
-                </p>
-                <p className="label-font">
-                  <strong>Nazwisko:</strong> {driverData.surname}
-                </p>
-                <p className="label-font">
-                  <strong>Email:</strong> {driverData.user?.email}
+                  <strong>Email:</strong> {userData.email}
                 </p>
               </>
             ) : (

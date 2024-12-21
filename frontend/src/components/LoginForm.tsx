@@ -42,8 +42,6 @@ function LoginForm(props: Props) {
     request("POST", "/register", {
       email: data.email,
       password: data.password,
-      name: data.name,
-      surname: data.surname
     });
   };
 
@@ -96,22 +94,6 @@ function LoginForm(props: Props) {
       <div className="login-box">
         <h1 className="title">Utwórz nowe konto</h1>
         <form onSubmit={handleSubmit(onRegisterSubmit)}>
-        <label className="label-font" htmlFor="name">
-              Imię
-            </label>
-            <input
-              className="deep-input"
-              id="name"
-              {...register("name", { required: true })}
-            />
-            <label className="label-font" htmlFor="surname">
-              Nazwisko
-            </label>
-            <input
-              className="deep-input"
-              id="surname"
-              {...register("surname", { required: true })}
-            />
           <label className="label-font" htmlFor="email">
             Email
           </label>

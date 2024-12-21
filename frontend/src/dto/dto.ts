@@ -4,14 +4,12 @@
 export interface DriverRequest {
   name: string | null;
   surname: string | null;
-  user: UserEntity | null;
 }
 
 export interface DriverResponse {
   id: number | null;
   name: string | null;
   surname: string | null;
-  user: UserResponse | null;
 }
 
 export interface ErrorResponse {
@@ -40,18 +38,6 @@ export interface TrackerResponse {
   name: string;
   serialNumber: string;
   type: string;
-}
-
-export interface UserDriverRequest {
-  email: string | null;
-  name: string | null;
-  password: string | null;
-  surname: string | null;
-}
-
-export interface UserEntity {
-  email: string | null;
-  password: string | null;
 }
 
 export interface UserRequest {

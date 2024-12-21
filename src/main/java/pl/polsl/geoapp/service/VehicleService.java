@@ -43,7 +43,7 @@ public class VehicleService {
 
     @Transactional
     public VehicleResponse[] getVehicles() {
-        return StreamSupport.stream(vehicleRepository.findAll().spliterator(), false)
+        return vehicleRepository.findAll().stream()
                 .map(VehicleResponse::fromEntity)
                 .toArray(VehicleResponse[]::new);
     }
@@ -68,7 +68,7 @@ public class VehicleService {
 
     @Transactional
     public VehicleTrackerResponse[] getVehicleTrackers() {
-        return StreamSupport.stream(vehicleTrackerRepository.findAll().spliterator(), false)
+        return vehicleTrackerRepository.findAll().stream()
                 .map(VehicleTrackerResponse::fromEntity)
                 .toArray(VehicleTrackerResponse[]::new);
     }
