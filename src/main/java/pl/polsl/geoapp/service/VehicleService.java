@@ -1,9 +1,6 @@
 package pl.polsl.geoapp.service;
 
 import jakarta.transaction.Transactional;
-
-import java.time.LocalDate;
-import java.util.stream.StreamSupport;
 import org.springframework.stereotype.Service;
 import pl.polsl.geoapp.dto.VehicleTrackerRequest;
 import pl.polsl.geoapp.dto.VehicleTrackerResponse;

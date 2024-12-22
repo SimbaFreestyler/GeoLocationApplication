@@ -7,5 +7,5 @@ import pl.polsl.geoapp.service.TrackerService;
 import java.util.List;
 
 public interface TrackerRepository extends CrudRepository<TrackerEntity, String> {
-    public List<TrackerEntity> findAll();
+    List<TrackerEntity> findAll();
 }

@@ -19,13 +19,12 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final DriverService driverService;
     private final UserAuthProvider userAuthProvider;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, DriverService driverService, UserAuthProvider userAuthProvider) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,
+                       UserAuthProvider userAuthProvider) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.driverService = driverService;
         this.userAuthProvider = userAuthProvider;
     }
 

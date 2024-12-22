@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DriverRepository extends CrudRepository<DriverEntity, Integer> {
-    public List<DriverEntity> findAllByUserEmail(String email);
+    List<DriverEntity> findAllByUserEmail(String email);
 }

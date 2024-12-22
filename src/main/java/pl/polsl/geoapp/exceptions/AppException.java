@@ -1,6 +1,5 @@
 package pl.polsl.geoapp.exceptions;
 
-import org.aspectj.bridge.IMessage;
 import org.springframework.http.HttpStatus;
 
 public class AppException extends RuntimeException {

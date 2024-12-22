@@ -1,8 +1,6 @@
 package pl.polsl.geoapp.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import pl.polsl.geoapp.config.UserAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

@@ -1,7 +1,6 @@
 package pl.polsl.geoapp.dto.tracker;
 
 import pl.polsl.geoapp.model.TrackerEntity;
-
 import javax.validation.constraints.NotNull;
 
 public class TrackerResponse {

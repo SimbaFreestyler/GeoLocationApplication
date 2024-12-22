@@ -1,8 +1,5 @@
 package pl.polsl.geoapp.dto;
 
-import pl.polsl.geoapp.dto.tracker.TrackerRequest;
-import pl.polsl.geoapp.dto.vehicle.VehicleRequest;
-
 import java.time.LocalDate;
 
 public class VehicleTrackerRequest {

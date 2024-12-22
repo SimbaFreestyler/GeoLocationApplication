@@ -1,7 +1,6 @@
 package pl.polsl.geoapp.model;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
 
 @Entity

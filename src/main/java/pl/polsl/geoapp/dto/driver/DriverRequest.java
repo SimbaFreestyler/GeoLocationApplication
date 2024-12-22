@@ -1,7 +1,5 @@
 package pl.polsl.geoapp.dto.driver;
 
-import pl.polsl.geoapp.model.UserEntity;
-
 public class DriverRequest {
     private String name;
 

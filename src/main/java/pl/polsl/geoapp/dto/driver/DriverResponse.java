@@ -1,6 +1,5 @@
 package pl.polsl.geoapp.dto.driver;
 
-import pl.polsl.geoapp.dto.user.UserResponse;
 import pl.polsl.geoapp.model.DriverEntity;
 
 public class DriverResponse {

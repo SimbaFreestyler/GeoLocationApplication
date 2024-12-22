@@ -7,8 +7,6 @@ import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.model.TrackerEntity;
 import pl.polsl.geoapp.repository.TrackerRepository;
 
-import java.util.stream.StreamSupport;
-
 @Service
 public class TrackerService {
     private final TrackerRepository trackerRepository;

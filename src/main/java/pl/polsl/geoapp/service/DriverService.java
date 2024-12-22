@@ -1,17 +1,12 @@
 package pl.polsl.geoapp.service;
 
 import jakarta.transaction.Transactional;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import pl.polsl.geoapp.dto.driver.DriverRequest;
 import pl.polsl.geoapp.dto.driver.DriverResponse;
-import pl.polsl.geoapp.exceptions.AppException;
 import pl.polsl.geoapp.model.DriverEntity;
 import pl.polsl.geoapp.repository.DriverRepository;
 import pl.polsl.geoapp.repository.UserRepository;
-
-import java.util.stream.StreamSupport;
 
 @Service
 public class DriverService {

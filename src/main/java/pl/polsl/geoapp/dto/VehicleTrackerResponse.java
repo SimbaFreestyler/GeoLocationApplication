@@ -2,11 +2,7 @@ package pl.polsl.geoapp.dto;
 
 import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.dto.vehicle.VehicleResponse;
-import pl.polsl.geoapp.model.TrackerEntity;
-import pl.polsl.geoapp.model.VehicleEntity;
 import pl.polsl.geoapp.model.VehicleTrackerEntity;
-import pl.polsl.geoapp.model.VehicleTrackerEntityId;
-
 import java.time.LocalDate;
 
 public class VehicleTrackerResponse {
