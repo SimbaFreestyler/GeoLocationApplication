@@ -34,6 +34,6 @@ public class TrackerController {
 
     @GetMapping("")
     public void getGpsData() {
-
+        String test = "";
     }
 }

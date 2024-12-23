@@ -1,5 +1,6 @@
 package pl.polsl.geoapp.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import pl.polsl.geoapp.dto.driver.DriverResponse;
 import pl.polsl.geoapp.dto.vehicle.VehicleResponse;
 import pl.polsl.geoapp.model.VehicleDriverEntity;
@@ -11,8 +12,10 @@ public class VehicleDriverResponse {
 
     private VehicleResponse vehicle;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     public DriverResponse getDriver() {
