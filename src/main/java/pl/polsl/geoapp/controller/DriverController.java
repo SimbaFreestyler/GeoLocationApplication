@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import pl.polsl.geoapp.dto.BasicResponse;
 import pl.polsl.geoapp.dto.driver.DriverRequest;
 import pl.polsl.geoapp.dto.driver.DriverResponse;
 import pl.polsl.geoapp.dto.user.UserResponse;
@@ -28,5 +29,10 @@ public class DriverController {
     public ResponseEntity<DriverResponse[]> getDrivers(Authentication auth) {
         UserResponse user = (UserResponse) auth.getPrincipal();
         return ResponseEntity.ok(driverService.getDrivers(user.getEmail()));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BasicResponse> deleteDriver(@PathVariable Integer id) {
+        return ResponseEntity.ok(driverService.deleteDriver(id));
     }
 }

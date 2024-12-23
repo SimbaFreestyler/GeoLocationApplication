@@ -2,6 +2,7 @@ package pl.polsl.geoapp.service;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import pl.polsl.geoapp.dto.BasicResponse;
 import pl.polsl.geoapp.dto.driver.DriverRequest;
 import pl.polsl.geoapp.dto.driver.DriverResponse;
 import pl.polsl.geoapp.model.DriverEntity;
@@ -34,5 +35,16 @@ public class DriverService {
         return driverRepository.findAllByUserEmail(email).stream()
                 .map(DriverResponse::fromEntity)
                 .toArray(DriverResponse[]::new);
+    }
+
+    @Transactional
+    public BasicResponse deleteDriver(Integer id) {
+        DriverEntity entity = driverRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Vehicle not found with id: " + id));
+        driverRepository.delete(entity);
+        BasicResponse response = new BasicResponse();
+        response.setSuccess(true);
+        response.setMessage("Pomyślnie usunięto kierowce");
+        return response;
     }
 }

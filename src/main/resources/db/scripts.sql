@@ -8,7 +8,7 @@ create table adm.user (
 );
 
 create table adm.driver (
-    id integer not null,
+    id integer primary key not null,
     name varchar(20),
     surname varchar(20),
     user_id varchar(50) not null
@@ -56,4 +56,14 @@ create table geo.vehicle_tracker (
     primary key (vehicle_id, tracker_id, start_date),
     constraint fk_vehicle foreign key (vehicle_id) references veh.vehicle (registration_number),
     constraint fk_tracker foreign key (tracker_id) references geo.tracker (serial_number)
+);
+
+create table geo.vehicle_driver (
+    vehicle_id varchar not null,
+    driver_id integer not null,
+    start_date date not null,
+    end_date date,
+    primary key (vehicle_id, driver_id, start_date),
+    constraint fk_vehicle foreign key (vehicle_id) references veh.vehicle (registration_number),
+    constraint fk_driver foreign key (driver_id) references adm.driver (id)
 );

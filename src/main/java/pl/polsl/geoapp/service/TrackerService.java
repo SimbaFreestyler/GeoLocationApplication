@@ -2,9 +2,11 @@ package pl.polsl.geoapp.service;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import pl.polsl.geoapp.dto.BasicResponse;
 import pl.polsl.geoapp.dto.tracker.TrackerRequest;
 import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.model.TrackerEntity;
+import pl.polsl.geoapp.model.VehicleEntity;
 import pl.polsl.geoapp.repository.TrackerRepository;
 
 @Service
@@ -30,5 +32,16 @@ public class TrackerService {
         return trackerRepository.findAll().stream()
                 .map(TrackerResponse::fromEntity)
                 .toArray(TrackerResponse[]::new);
+    }
+
+    @Transactional
+    public BasicResponse deleteTracker(String serialNumber) {
+        TrackerEntity entity = trackerRepository.findById(serialNumber)
+                .orElseThrow(() -> new RuntimeException("Vehicle not found with id: " + serialNumber));
+        trackerRepository.delete(entity);
+        BasicResponse response = new BasicResponse();
+        response.setSuccess(true);
+        response.setMessage("Pomyślnie usunięto lokalizator");
+        return response;
     }
 }

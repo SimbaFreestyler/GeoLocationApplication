@@ -1,5 +1,5 @@
 import { request } from "../components/requestConfig";
-import { VehicleRequest, VehicleResponse, VehicleTrackerRequest, VehicleTrackerResponse } from "../dto/dto";
+import { BasicResponse, VehicleDriverRequest, VehicleDriverResponse, VehicleRequest, VehicleResponse, VehicleTrackerRequest, VehicleTrackerResponse } from "../dto/dto";
 
 
 export async function createVehicle(vehicle: VehicleRequest): Promise<VehicleResponse | null> {
@@ -12,32 +12,36 @@ export async function createVehicle(vehicle: VehicleRequest): Promise<VehicleRes
     }
 }
 
+export async function deleteVehicle(registrationNumber: string): Promise<BasicResponse> {
+    try {
+        const response = await request("DELETE", `/vehicle/${registrationNumber}`);
+        
+        if (response.status === 200) {
+            return {
+                success: true,
+                message: response.data.message || "Vehicle deleted successfully",
+            };
+        } else {
+            return {
+                success: false,
+                message: response.data.message || "Failed to delete vehicle",
+            };
+        }
+    } catch (error) {
+        console.error("Error deleting vehicle:", error);
+        return {
+            success: false,
+            message: "An error occurred while deleting the vehicle.",
+        };
+    }
+}
+
 export async function getVehicles(): Promise<VehicleResponse[] | null> {
     try {
         const response = await request("GET", "/vehicle");
         return response.data;
     } catch (error) {
         console.error("Error getting vehicles:", error);
-        return null;
-    }
-}
-
-export async function createVehicleTracker(vehicle: VehicleTrackerRequest): Promise<VehicleTrackerResponse | null> {
-    try {
-        const response = await request("POST", "/vehicle/tracker", vehicle);
-        return response.data;
-    } catch (error) {
-        console.error("Error creating vehicle tracker:", error);
-        return null;
-    }
-}
-
-export async function getVehicleTrackers(): Promise<VehicleTrackerResponse[] | null> {
-    try {
-        const response = await request("GET", "/vehicle/tracker");
-        return response.data;
-    } catch (error) {
-        console.error("Error getting vehicle trackers:", error);
         return null;
     }
 }

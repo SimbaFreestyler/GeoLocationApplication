@@ -15,11 +15,11 @@ export const setAuthToken = (token: string) => {
 const isTokenExpired = (token: string): boolean => {
     try {
         const decoded: { exp: number } = jwtDecode(token);
-        const currentTime = Math.floor(Date.now() / 1000); // Czas w sekundach
+        const currentTime = Math.floor(Date.now() / 1000);
         return decoded.exp < currentTime;
     } catch (e) {
         console.error("Invalid token:", e);
-        return true; // Jeśli token jest nieprawidłowy, traktuj go jako przeterminowany
+        return true;
     }
 };
 

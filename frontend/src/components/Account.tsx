@@ -1,32 +1,42 @@
 import { useEffect, useState } from "react";
-import { VehicleResponse, VehicleTrackerResponse, UserResponse } from "../dto/dto";
-import AddVehicleForm from "./AddVehicleForm";
-import AddTrackerForm from "./AddTrackerForm";
+import {
+  VehicleTrackerResponse,
+  UserResponse,
+  VehicleDriverResponse,
+} from "../dto/dto";
 import "../css/account.css";
 import AddVehicleTrackerForm from "./AddVehicleTrackerForm";
-import { getVehicleTrackers } from "../actions/vehicles";
 import { getUserData } from "../actions/users";
+import AddVehicleDriverForm from "./AddVehicleDriverForm";
+import { deleteVehicleDriver, getVehicleDrivers } from "../actions/vehicleDrivers";
+import { deleteVehicleTracker, getVehicleTrackers } from "../actions/vehicleTrackers";
 
 function Account() {
-  const [vehicleData, setVehicleData] = useState<VehicleResponse[] | null>(
-    null
-  );
   const [userData, setUserData] = useState<UserResponse | null>(null);
-
-  const [vehicleTrackers, setVehicleTrackers] = useState<VehicleTrackerResponse[] | null>(
-    null
-  );
-  const [addVehicleFormVisible, setAddVehicleFormVisible] =
+  const [vehicleDrivers, setVehicleDrivers] = useState<
+    VehicleDriverResponse[] | null
+  >(null);
+  const [vehicleTrackers, setVehicleTrackers] = useState<
+    VehicleTrackerResponse[] | null
+  >(null);
+  const [addVehicleDriverFormVisible, setAddVehicleDriverFormVisible] =
     useState<boolean>(false);
   const [addVehicleTrackerFormVisible, setAddVehicleTrackerFormVisible] =
     useState<boolean>(false);
 
   const loadVehicleTrackerData = async () => {
-      const data = await getVehicleTrackers();
-      setVehicleTrackers(data);
-    };
+    const data = await getVehicleTrackers();
+    console.log(data);
+    setVehicleTrackers(data);
+  };
 
-    const loadUserData = async () => {
+  const loadVehicleDriverData = async () => {
+    const data = await getVehicleDrivers();
+    console.log(data);
+    setVehicleDrivers(data);
+  };
+
+  const loadUserData = async () => {
     try {
       const data = await getUserData();
       setUserData(data);
@@ -36,28 +46,55 @@ function Account() {
     }
   };
 
+  const handleVehicleDriverDelete = async (
+    vehicleDriver: VehicleDriverResponse
+  ) => {
+    try {
+      await deleteVehicleDriver(vehicleDriver);
+      loadVehicleDriverData();
+    } catch (err) {
+      console.error("Error deleting vehicle driver", err);
+    }
+  };
+
+  const handleVehicleTrackerDelete = async (
+    vehicleTracker: VehicleTrackerResponse
+  ) => {
+    try {
+      await deleteVehicleTracker(vehicleTracker);
+      loadVehicleTrackerData();
+    } catch (err) {
+      console.error("Error deleting vehicle trcker:", err);
+    }
+  };
+
   useEffect(() => {
     loadUserData();
-    loadVehicleTrackerData()
+    loadVehicleTrackerData();
+    loadVehicleDriverData();
     console.log(vehicleTrackers);
   }, []);
 
   return (
     <>
-      {addVehicleFormVisible && (
+      {addVehicleDriverFormVisible && (
         <div className="modal-overlay">
-          <AddVehicleForm onClose={() => {
-            setAddVehicleFormVisible(false);
-            loadVehicleTrackerData();
-          }}/>
+          <AddVehicleDriverForm
+            onClose={() => {
+              setAddVehicleDriverFormVisible(false);
+              loadVehicleDriverData();
+            }}
+          />
         </div>
       )}
       {addVehicleTrackerFormVisible && (
         <div className="modal-overlay">
-          <AddVehicleTrackerForm onClose={() => {
-            setAddVehicleTrackerFormVisible(false);
-            loadVehicleTrackerData();
-          }} />
+          <AddVehicleTrackerForm
+            onClose={() => {
+              setAddVehicleTrackerFormVisible(false);
+              loadVehicleTrackerData();
+            }}
+          />
         </div>
       )}
       <div className="user-container">
@@ -75,45 +112,74 @@ function Account() {
               <p className="label-font">Ładowanie danych konta...</p>
             )}
           </div>
-          <div className="vehicle-list">
-            <h2 className="label-font">Użytkowane pojazdy</h2>
-            {vehicleData?.length ? (
+          <div className="list vehicle-driver-list">
+            <h2 className="label-font">Kierowcy w pojazdach</h2>
+            {vehicleDrivers?.length ? (
               <ul>
-                {vehicleData.map((vehicle: VehicleResponse) => (
-                  <li key={vehicle.registrationNumber}>
-                    <strong>Nr rej.:</strong> {vehicle.registrationNumber} |
-                    <strong>VIN:</strong> {vehicle.vinNumber} |
-                    <strong>Marka:</strong> {vehicle.brand} |
-                    <strong>Model:</strong> {vehicle.model}
+                {vehicleDrivers.map((driver: VehicleDriverResponse) => (
+                  <li
+                    key={`${driver.driver?.id}-${driver.vehicle?.registrationNumber}-${driver.startDate}`}
+                  >
+                    <div>
+                      <strong>Pojazd:</strong> {driver.vehicle?.brand}{" "}
+                      {driver.vehicle?.model} -{" "}
+                      {driver.vehicle?.registrationNumber}
+                      <br></br>
+                      <strong>Kierowca:</strong> {driver.driver?.name}{" "}
+                      {driver.driver?.surname}
+                      <br></br>
+                      <strong>Okres:</strong> {driver.startDate || "N/A"} -{" "}
+                      {driver.endDate || "N/A"}
+                    </div>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleVehicleDriverDelete(driver)}
+                    >
+                      Usuń
+                    </button>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="label-font">Brak pojazdów.</p>
+              <p className="label-font">Brak kierowców.</p>
             )}
             <button
               className="add-button"
               onClick={() => {
-                setAddVehicleFormVisible(true);
+                setAddVehicleDriverFormVisible(true);
               }}
             >
-              Dodaj pojazd
+              Dodaj kierowcę
             </button>
           </div>
-          <div className="tracker-list">
+          <div className="list vehicle-tracker-list">
             <h2 className="label-font">Lokalizatory w pojazdach</h2>
             {vehicleTrackers?.length ? (
               <ul>
-              {vehicleTrackers.map((tracker: VehicleTrackerResponse) => (
-                <li key={`${tracker.tracker?.serialNumber}-${tracker.vehicle?.registrationNumber}`}>
-                    <strong>Pojazd:</strong> {tracker.vehicle?.brand} {tracker.vehicle?.model} - {tracker.vehicle?.registrationNumber}
-                    <br></br>
-                    <strong>Lokalizator:</strong> {tracker.tracker?.name} - {tracker.tracker?.serialNumber}
-                    <br></br>
-                  <strong>Okres:</strong> {tracker.startDate || "N/A"} - {tracker.endDate || "N/A"}
-                </li>
-              ))}
-            </ul>
+                {vehicleTrackers.map((tracker: VehicleTrackerResponse) => (
+                  <li
+                    key={`${tracker.tracker?.serialNumber}-${tracker.vehicle?.registrationNumber}-${tracker.startDate}`}
+                  >
+                    <div>
+                      <strong>Pojazd:</strong> {tracker.vehicle?.brand}{" "}
+                      {tracker.vehicle?.model} -{" "}
+                      {tracker.vehicle?.registrationNumber}
+                      <br></br>
+                      <strong>Lokalizator:</strong> {tracker.tracker?.name} -{" "}
+                      {tracker.tracker?.serialNumber}
+                      <br></br>
+                      <strong>Okres:</strong> {tracker.startDate || "N/A"} -{" "}
+                      {tracker.endDate || "N/A"}
+                    </div>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleVehicleTrackerDelete(tracker)}
+                    >
+                      Usuń
+                    </button>
+                  </li>
+                ))}
+              </ul>
             ) : (
               <p className="label-font">Brak lokalizatorów.</p>
             )}

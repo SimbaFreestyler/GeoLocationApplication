@@ -1,6 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export interface BasicResponse {
+  message: string | null;
+  success: boolean | null;
+}
+
 export interface DriverRequest {
   name: string | null;
   surname: string | null;
@@ -48,6 +53,20 @@ export interface UserRequest {
 export interface UserResponse {
   email: string | null;
   token: string | null;
+}
+
+export interface VehicleDriverRequest {
+  driverId: number | null;
+  endDate: string | null;
+  startDate: string | null;
+  vehicleId: string | null;
+}
+
+export interface VehicleDriverResponse {
+  driver: DriverResponse | null;
+  endDate: string | null;
+  startDate: string | null;
+  vehicle: VehicleResponse | null;
 }
 
 export interface VehicleRequest {

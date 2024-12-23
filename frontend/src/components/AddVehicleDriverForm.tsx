@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import "../css/form.css";
 import { getVehicles } from "../actions/vehicles";
-import { getTrackers } from "../actions/trackers";
-import { TrackerResponse, VehicleResponse, VehicleTrackerRequest } from "../dto/dto";
-import { createVehicleTracker } from "../actions/vehicleTrackers";
+import { DriverResponse, VehicleDriverRequest, VehicleResponse } from "../dto/dto";
+import { getDrivers } from "../actions/drivers";
+import { createVehicleDriver } from "../actions/vehicleDrivers";
 
 type FormState = {
   vehicleId: string;
-  trackerId: string;
+  driverId: number;
   startDate: string;
   endDate: string;
 };
@@ -17,9 +17,9 @@ type Props = {
   onClose: () => void;
 };
 
-function AddVehicleTrackerForm({ onClose }: Props) {
+function AddVehicleDriverForm({ onClose }: Props) {
   const [vehicles, setVehicles] = useState<VehicleResponse[]>([]);
-  const [trackers, setTrackers] = useState<TrackerResponse[]>([]);
+  const [drivers, setDrivers] = useState<DriverResponse[]>([]);
 
   const {
     register,
@@ -31,34 +31,34 @@ function AddVehicleTrackerForm({ onClose }: Props) {
   useEffect(() => {
     const fetchData = async () => {
       const vehicleData = await getVehicles();
-      const trackerData = await getTrackers();
+      const driverData = await getDrivers();
       if (vehicleData) {
         setVehicles(vehicleData);
       }
-      if (trackerData) {
-        setTrackers(trackerData);
+      if (driverData) {
+        setDrivers(driverData);
       }
     };
     fetchData();
   }, []);
 
   const onSubmit: SubmitHandler<FormState> = async (data) => {
-    const vehicleTrackerRequest: VehicleTrackerRequest = {
+    const vehicleDriverRequest: VehicleDriverRequest = {
       vehicleId: data.vehicleId,
-      trackerId: data.trackerId,
+      driverId: data.driverId,
       startDate: data.startDate,
       endDate: data.endDate,
     };
 
-    const createdTracker = await createVehicleTracker(vehicleTrackerRequest);
-    console.log(createdTracker);
+    const createdDriver = await createVehicleDriver(vehicleDriverRequest);
+    console.log(createdDriver);
         
-          if (createdTracker) {
-              console.log("Vehicle tracker created successfully:", createdTracker);
+          if (createdDriver) {
+              console.log("Vehicle driver created successfully:", createdDriver);
               onClose();
               reset();
           } else {
-              console.error("Failed to create vehicle tracker.");
+              console.error("Failed to create vehicle driver.");
           
           };
   };
@@ -66,7 +66,7 @@ function AddVehicleTrackerForm({ onClose }: Props) {
   return (
     <div className="form-container">
       <div className="form-box">
-        <h1 className="form-title">Powiąż pojazd z lokalizatorem</h1>
+        <h1 className="form-title">Powiąż pojazd z kierowcą</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label className="form-label" htmlFor="vehicleId">
             Wybierz pojazd
@@ -89,25 +89,25 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             <span className="form-error">{errors.vehicleId.message}</span>
           )}
 
-          <label className="form-label" htmlFor="trackerId">
-            Wybierz lokalizator
+          <label className="form-label" htmlFor="driverId">
+            Wybierz kierowcę
           </label>
           <select
             className="form-input"
-            id="trackerId"
-            {...register("trackerId", {
-              required: "Wybór lokalizatora jest wymagany",
+            id="driverId"
+            {...register("driverId", {
+              required: "Wybór kierowcy jest wymagany",
             })}
           >
-            <option value="">-- Wybierz lokalizator --</option>
-            {trackers.map((tracker) => (
-              <option key={tracker.serialNumber} value={tracker.serialNumber}>
-                {tracker.name} - {tracker.serialNumber}
+            <option value="">-- Wybierz kierowcę --</option>
+            {drivers.map((driver) => (
+              <option key={driver.id} value={driver.id ?? ""}>
+                {driver.name} {driver.surname}
               </option>
             ))}
           </select>
-          {errors.trackerId && (
-            <span className="form-error">{errors.trackerId.message}</span>
+          {errors.driverId && (
+            <span className="form-error">{errors.driverId.message}</span>
           )}
 
           <label className="form-label" htmlFor="startDate">
@@ -152,4 +152,4 @@ function AddVehicleTrackerForm({ onClose }: Props) {
   );
 }
 
-export default AddVehicleTrackerForm;
+export default AddVehicleDriverForm;
