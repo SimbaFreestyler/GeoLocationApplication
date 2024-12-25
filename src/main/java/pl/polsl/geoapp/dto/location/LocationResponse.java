@@ -1,33 +1,39 @@
 package pl.polsl.geoapp.dto.location;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.locationtech.jts.geom.Point;
+
+import java.time.LocalDateTime;
+
 public class LocationResponse {
-    private String serialNumber;
+    private Integer id;
 
-    private String name;
+    private LocalDateTime timestamp;
 
-    private String type;
+    @JsonProperty("coords")
+    private Point coords;
 
-    public String getSerialNumber() {
-        return serialNumber;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public String getType() {
-        return type;
+    public Point getCoords() {
+        return coords;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCoords(Point coords) {
+        this.coords = coords;
     }
 }

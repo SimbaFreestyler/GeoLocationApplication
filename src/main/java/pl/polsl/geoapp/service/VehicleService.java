@@ -9,6 +9,8 @@ import pl.polsl.geoapp.model.*;
 import pl.polsl.geoapp.repository.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class VehicleService {
@@ -132,5 +134,11 @@ public class VehicleService {
         response.setSuccess(true);
         response.setMessage("Pomyślnie usunięto powiązanie pojazdu z kierowcą");
         return response;
+    }
+
+    @Transactional
+    public List<LocationEntity> getVehicleLocation(LocalDate startDate, LocalDate endDate, String registrationNumber) {
+        List<LocationEntity> locations = new ArrayList<>();
+        return locations;
     }
 }

@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface VehicleTrackerRepository extends CrudRepository<VehicleTrackerEntity, VehicleTrackerEntityId> {
     List<VehicleTrackerEntity> findAll();
+
+    List<VehicleTrackerEntity> findAllById_TrackerId(String trackerId);
 }

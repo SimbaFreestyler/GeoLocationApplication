@@ -3,6 +3,9 @@ package pl.polsl.geoapp.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.Type;
+import org.locationtech.jts.geom.Point;
+
 @Entity
 @Table(name = "location", schema = "geo")
 public class LocationEntity {
@@ -22,6 +25,9 @@ public class LocationEntity {
   @ManyToOne
   @JoinColumn(name = "tracker_id", referencedColumnName = "serial_number")
   private TrackerEntity tracker;
+
+  @Column(columnDefinition = "geography(Point,4326)")
+  private Point coords;
 
   public Integer getId() {
     return id;
@@ -45,5 +51,13 @@ public class LocationEntity {
 
   public void setTracker(TrackerEntity tracker) {
     this.tracker = tracker;
+  }
+
+  public Point getCoords() {
+    return coords;
+  }
+
+  public void setCoords(Point coords) {
+    this.coords = coords;
   }
 }

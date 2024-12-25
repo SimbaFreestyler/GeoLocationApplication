@@ -112,7 +112,7 @@ function Account() {
               <p className="label-font">Ładowanie danych konta...</p>
             )}
           </div>
-          <div className="list vehicle-driver-list">
+          <div className="list vehicle-driver-list right">
             <h2 className="label-font">Kierowcy w pojazdach</h2>
             {vehicleDrivers?.length ? (
               <ul>
@@ -152,7 +152,7 @@ function Account() {
               Dodaj kierowcę
             </button>
           </div>
-          <div className="list vehicle-tracker-list">
+          <div className="list vehicle-tracker-list right">
             <h2 className="label-font">Lokalizatory w pojazdach</h2>
             {vehicleTrackers?.length ? (
               <ul>

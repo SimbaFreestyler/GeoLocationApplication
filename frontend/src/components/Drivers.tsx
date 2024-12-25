@@ -14,7 +14,7 @@ function Drivers() {
     setDrivers(data);
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id: number | null) => {
         try {
           await deleteDriver(id);
           loadDriverData();
