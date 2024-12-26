@@ -12,4 +12,6 @@ public interface VehicleTrackerRepository extends CrudRepository<VehicleTrackerE
     List<VehicleTrackerEntity> findAll();
 
     List<VehicleTrackerEntity> findAllById_TrackerId(String trackerId);
+
+    List<VehicleTrackerEntity> findAllById_VehicleId(String vehicleId);
 }

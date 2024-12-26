@@ -27,7 +27,7 @@ public class TrackerController {
         return ResponseEntity.ok(trackerService.getTrackers());
     }
 
-    @DeleteMapping("tracker/{serialNumber}")
+    @DeleteMapping("/tracker/{serialNumber}")
     public ResponseEntity<BasicResponse> deleteTracker(@PathVariable String serialNumber) {
         return ResponseEntity.ok(trackerService.deleteTracker(serialNumber));
     }
