@@ -97,6 +97,7 @@ export interface LocationResponse {
   coords: Point | null;
   id: number | null;
   timestamp: string | null;
+  trackerId: string | null;
 }
 
 export interface Point extends Geometry, Puntal {
@@ -171,6 +172,12 @@ export interface VehicleResponse {
   model: string;
   registrationNumber: string;
   vinNumber: string;
+}
+
+export interface VehicleRouteResponse {
+  endDateTime: string | null;
+  startDateTime: string | null;
+  trackerId: string | null;
 }
 
 export interface VehicleTrackerRequest {

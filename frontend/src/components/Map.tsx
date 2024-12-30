@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import leaflet, { map } from "leaflet";
 import "../css/map.css";
-import { DriverResponse } from "../dto/dto";
+import { DriverResponse, LocationResponse } from "../dto/dto";
 import AddDriverRouteForm from "./AddDriverRouteForm";
 import AddVehicleRouteForm from "./AddVehicleRouteForm";
+import { getVehicleLocations } from "../actions/locations";
 
 type DriverRoute = {
   driverId: number;
@@ -24,7 +25,7 @@ function Map() {
   const [driverRoutes, setDriverRoutes] = useState<DriverRoute[]>(() => {
     const savedRoutes = localStorage.getItem("driverRoutes");
     return savedRoutes ? JSON.parse(savedRoutes) : [];
-  });
+  }); 
 
   const [vehicleRoutes, setVehicleRoutes] = useState<VehicleRoute[]>(() => {
     const savedRoutes = localStorage.getItem("vehicleRoutes");
@@ -105,8 +106,10 @@ function Map() {
             onClose={() => {
               setAddVehicleRouteFormVisible(false);
             }}
-            onAddVehicle={(vehicle: VehicleRoute) => {
+            onAddVehicle={async (vehicle: VehicleRoute) => {
               const updatedVehicles = [...vehicleRoutes, vehicle];
+              const data: LocationResponse[] | null = await getVehicleLocations(vehicle.registrationNumber, vehicle.startDate, vehicle.endDate);
+              console.log('Data: ', data);
               setVehicleRoutes(updatedVehicles);
             }}
           />

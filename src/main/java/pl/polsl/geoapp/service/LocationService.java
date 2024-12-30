@@ -13,6 +13,7 @@ import pl.polsl.geoapp.repository.VehicleTrackerRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -61,6 +62,7 @@ public class LocationService {
                     route.getTrackerId(), route.getStartDateTime(), route.getEndDateTime())
                     .stream().map(LocationResponse::fromEntity).toList());
         });
+        locationList.sort(Comparator.comparing(LocationResponse::getTimestamp));
         return locationList;
     }
 }
