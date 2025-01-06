@@ -20,18 +20,23 @@
 \contentsline {paragraph}{}{5}{section*.16}%
 \contentsline {paragraph}{}{6}{section*.17}%
 \contentsline {paragraph}{}{7}{section*.20}%
-\contentsline {chapter}{\numberline {4}Specyfikacja zewnętrzna}{9}{chapter.4}%
-\contentsline {paragraph}{}{9}{section*.21}%
-\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{11}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{13}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{15}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{17}{chapter*.25}%
-\contentsline {chapter}{Spis skrótów i symboli}{21}{appendix*.26}%
+\contentsline {chapter}{\numberline {4}Specyfikacja zewnętrzna}{11}{chapter.4}%
+\contentsline {paragraph}{}{11}{section*.21}%
+\contentsline {paragraph}{}{11}{section*.22}%
+\contentsline {paragraph}{}{11}{section*.23}%
+\contentsline {paragraph}{}{11}{section*.24}%
+\contentsline {paragraph}{}{12}{section*.25}%
+\contentsline {paragraph}{}{12}{section*.26}%
+\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{17}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{19}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{21}{chapter*.30}%
+\contentsline {chapter}{Spis skrótów i symboli}{25}{appendix*.31}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{23}{appendix*.27}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{25}{appendix*.28}%
-\contentsline {chapter}{Spis rysunków}{27}{appendix*.29}%
-\contentsline {chapter}{Spis tabel}{29}{appendix*.30}%
+\contentsline {chapter}{Źródła}{27}{appendix*.32}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{29}{appendix*.33}%
+\contentsline {chapter}{Spis rysunków}{31}{appendix*.34}%
+\contentsline {chapter}{Spis tabel}{33}{appendix*.35}%
