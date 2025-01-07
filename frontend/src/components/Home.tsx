@@ -5,7 +5,8 @@ function Home() {
     <div>
       <h1 className="welcome-title">Witaj w GeoApp</h1>
       <p className="text description1">
-        GeoApp jest wszystkim czego potrzebujesz do obsługi lokalizatorów w swoich pojazdach.
+        GeoApp to aplikacja, która pozwala zarządzać danymi lokalizatorów, pojazdów i kierowców w jednym miejscu. Chcesz sprawdzić, jaką trasę przebył Twój pojazd lub kierowca? 
+        To też oferuje GeoApp.
       </p>
       <p className="text description2">
         Zarejestruj się, aby uzyskać dostęp do aplikacji lub zaloguj się, jeśli posiadasz już konto w GeoApp.

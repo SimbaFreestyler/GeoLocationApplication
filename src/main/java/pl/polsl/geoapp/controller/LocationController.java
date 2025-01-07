@@ -27,4 +27,11 @@ public class LocationController {
                                                                @PathVariable LocalDate endDate) {
         return ResponseEntity.ok(locationService.getVehicleLocations(vehicleId, startDate, endDate));
     }
+
+    @GetMapping("/driver/{driverId}/{startDate}/{endDate}")
+    public ResponseEntity<List<LocationResponse>> getDriverLocations(@PathVariable Integer driverId,
+                                                                      @PathVariable LocalDate startDate,
+                                                                      @PathVariable LocalDate endDate) {
+        return ResponseEntity.ok(locationService.getDriverLocations(driverId, startDate, endDate));
+    }
 }

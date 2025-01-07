@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface VehicleDriverRepository extends CrudRepository<VehicleDriverEntity, VehicleDriverEntityId> {
     List<VehicleDriverEntity> findAll();
+
+    List<VehicleDriverEntity> findAllById_DriverId(Integer driverId);
 }

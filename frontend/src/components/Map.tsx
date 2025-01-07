@@ -4,13 +4,20 @@ import "../css/map.css";
 import { DriverResponse, LocationResponse } from "../dto/dto";
 import AddDriverRouteForm from "./AddDriverRouteForm";
 import AddVehicleRouteForm from "./AddVehicleRouteForm";
-import { getVehicleLocations } from "../actions/locations";
+import { getDriverLocations, getVehicleLocations } from "../actions/locations";
+
+type Point = {
+  latitude: number;
+  longitude: number;
+};
 
 type DriverRoute = {
   driverId: number;
   fullName: string;
   startDate: string;
   endDate: string;
+  points?: Point[];
+  color?: string;
 };
 
 type VehicleRoute = {
@@ -18,14 +25,39 @@ type VehicleRoute = {
   fullName: string;
   startDate: string;
   endDate: string;
+  points?: Point[];
+  color?: string;
 };
 
 function Map() {
   const mapRef = useRef<leaflet.Map | null>(null);
+  const polylineLayerGroup = useRef<leaflet.LayerGroup>(leaflet.layerGroup());
+  const colors = [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "purple",
+    "pink",
+    "brown",
+    "gray",
+    "black",
+    "white",
+    "cyan",
+    "magenta",
+    "lime",
+    "indigo",
+    "violet",
+    "teal",
+    "maroon",
+    "navy",
+    "olive",
+  ];
   const [driverRoutes, setDriverRoutes] = useState<DriverRoute[]>(() => {
     const savedRoutes = localStorage.getItem("driverRoutes");
     return savedRoutes ? JSON.parse(savedRoutes) : [];
-  }); 
+  });
 
   const [vehicleRoutes, setVehicleRoutes] = useState<VehicleRoute[]>(() => {
     const savedRoutes = localStorage.getItem("vehicleRoutes");
@@ -38,18 +70,31 @@ function Map() {
   const [addVehicleRouteFormVisible, setAddVehicleRouteFormVisible] =
     useState<boolean>(false);
 
-  const handleDriverRouteDelete = async (id: number | null, startDate:string) => {
+  const handleDriverRouteDelete = async (
+    id: number | null,
+    startDate: string
+  ) => {
     try {
-      const updatedDrivers = driverRoutes.filter((driver) => !(driver.driverId === id && driver.startDate === startDate));
+      const updatedDrivers = driverRoutes.filter(
+        (driver) => !(driver.driverId === id && driver.startDate === startDate)
+      );
       setDriverRoutes(updatedDrivers);
     } catch (err) {
       console.error("Błąd podczas usuwania trasy kierowcy:", err);
     }
   };
 
-  const handleVehicleRouteDelete = async (id: string | null, startDate: string) => {
+  const handleVehicleRouteDelete = async (
+    id: string | null,
+    startDate: string
+  ) => {
     try {
-      const updatedVehicles = vehicleRoutes.filter((vehicle) => !(vehicle.registrationNumber === id && vehicle.startDate === startDate));
+      const updatedVehicles = vehicleRoutes.filter(
+        (vehicle) =>
+          !(
+            vehicle.registrationNumber === id && vehicle.startDate === startDate
+          )
+      );
       setVehicleRoutes(updatedVehicles);
     } catch (err) {
       console.error("Błąd podczas usuwania trasy pojazdu:", err);
@@ -58,7 +103,7 @@ function Map() {
 
   useEffect(() => {
     if (!mapRef.current && document.getElementById("map")) {
-      mapRef.current = leaflet.map("map").setView([51.505, -0.09], 13);
+      mapRef.current = leaflet.map("map").setView([50.299, 18.787], 13);
 
       leaflet
         .tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -85,6 +130,37 @@ function Map() {
     console.log(vehicleRoutes);
   }, [vehicleRoutes]);
 
+  useEffect(() => {
+    polylineLayerGroup.current.clearLayers();
+
+    driverRoutes.forEach((route) => {
+      if (route.points && route.points.length > 0) {
+        const latLngs: [number, number][] = route.points.map((point) => [
+          point.latitude,
+          point.longitude,
+        ]);
+        leaflet
+          .polyline(latLngs, { color: route.color || "blue", weight: 6 })
+          .addTo(polylineLayerGroup.current);
+      }
+    });
+
+    vehicleRoutes.forEach((route) => {
+      if (route.points && route.points.length > 0) {
+        const latLngs: [number, number][] = route.points.map((point) => [
+          point.latitude,
+          point.longitude,
+        ]);
+        leaflet
+          .polyline(latLngs, { color: route.color || "green", weight: 6 })
+          .addTo(polylineLayerGroup.current);
+        console.log("Draw: ", latLngs);
+      }
+    });
+
+    polylineLayerGroup.current.addTo(mapRef.current!);
+  }, [driverRoutes, vehicleRoutes]);
+
   return (
     <>
       {addDriverRouteFormVisible && (
@@ -93,7 +169,25 @@ function Map() {
             onClose={() => {
               setAddDriverRouteFormVisible(false);
             }}
-            onAddDriver={(driver: DriverRoute) => {
+            onAddDriver={async (driver: DriverRoute) => {
+              const data: LocationResponse[] | null = await getDriverLocations(
+                driver.driverId,
+                driver.startDate,
+                driver.endDate
+              );
+              const points: Point[] = (data || [])
+                .filter(
+                  (point) => point.latitude !== null && point.longitude !== null
+                )
+                .map((point) => ({
+                  latitude: point.latitude as number,
+                  longitude: point.longitude as number,
+                }));
+              driver.points = points;
+              const randomColor =
+                colors[Math.floor(Math.random() * colors.length)];
+              driver.color = randomColor;
+              console.log("Points driver: ", driver);
               const updatedDrivers = [...driverRoutes, driver];
               setDriverRoutes(updatedDrivers);
             }}
@@ -107,9 +201,25 @@ function Map() {
               setAddVehicleRouteFormVisible(false);
             }}
             onAddVehicle={async (vehicle: VehicleRoute) => {
+              const data: LocationResponse[] | null = await getVehicleLocations(
+                vehicle.registrationNumber,
+                vehicle.startDate,
+                vehicle.endDate
+              );
+              const points: Point[] = (data || [])
+                .filter(
+                  (point) => point.latitude !== null && point.longitude !== null
+                )
+                .map((point) => ({
+                  latitude: point.latitude as number,
+                  longitude: point.longitude as number,
+                }));
+              vehicle.points = points;
+              const randomColor =
+                colors[Math.floor(Math.random() * colors.length)];
+              vehicle.color = randomColor;
+              console.log("Points vehicle: ", vehicle);
               const updatedVehicles = [...vehicleRoutes, vehicle];
-              const data: LocationResponse[] | null = await getVehicleLocations(vehicle.registrationNumber, vehicle.startDate, vehicle.endDate);
-              console.log('Data: ', data);
               setVehicleRoutes(updatedVehicles);
             }}
           />
@@ -131,10 +241,25 @@ function Map() {
                       <strong>Data od:</strong> {driver.startDate}
                       <br></br>
                       <strong>Data do:</strong> {driver.endDate}
+                      <br></br>
+                      <strong>Kolor trasy: </strong>
+                      <span
+                        style={{
+                          display: "inline-block",
+                          width: "20px",
+                          height: "20px",
+                          backgroundColor: driver.color || "blue",
+                        }}
+                      ></span>
                     </div>
                     <button
                       className="delete-button"
-                      onClick={() => handleDriverRouteDelete(driver.driverId, driver.startDate)}
+                      onClick={() =>
+                        handleDriverRouteDelete(
+                          driver.driverId,
+                          driver.startDate
+                        )
+                      }
                     >
                       Usuń
                     </button>
@@ -159,17 +284,34 @@ function Map() {
             {vehicleRoutes?.length ? (
               <ul>
                 {vehicleRoutes.map((vehicle: VehicleRoute) => (
-                  <li key={`${vehicle.registrationNumber} ${vehicle.startDate}`}>
+                  <li
+                    key={`${vehicle.registrationNumber} ${vehicle.startDate}`}
+                  >
                     <div>
                       <strong>Marka i model:</strong> {vehicle.fullName}
                       <br></br>
                       <strong>Data od:</strong> {vehicle.startDate}
                       <br></br>
                       <strong>Data do:</strong> {vehicle.endDate}
+                      <br></br>
+                      <strong>Kolor trasy: </strong>
+                      <span
+                        style={{
+                          display: "inline-block",
+                          width: "20px",
+                          height: "20px",
+                          backgroundColor: vehicle.color || "green",
+                        }}
+                      ></span>
                     </div>
                     <button
                       className="delete-button"
-                      onClick={() => handleVehicleRouteDelete(vehicle.registrationNumber, vehicle.startDate)}
+                      onClick={() =>
+                        handleVehicleRouteDelete(
+                          vehicle.registrationNumber,
+                          vehicle.startDate
+                        )
+                      }
                     >
                       Usuń
                     </button>

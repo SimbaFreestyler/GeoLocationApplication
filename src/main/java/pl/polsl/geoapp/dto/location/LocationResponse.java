@@ -11,8 +11,9 @@ public class LocationResponse {
 
     private LocalDateTime timestamp;
 
-    @JsonProperty("coords")
-    private Point coords;
+    private Double latitude;
+
+    private Double longitude;
 
     private String trackerId;
 
@@ -32,12 +33,20 @@ public class LocationResponse {
         this.timestamp = timestamp;
     }
 
-    public Point getCoords() {
-        return coords;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setCoords(Point coords) {
-        this.coords = coords;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public String getTrackerId() {
@@ -51,7 +60,8 @@ public class LocationResponse {
     public static LocationResponse fromEntity(LocationEntity entity) {
         LocationResponse response = new LocationResponse();
         response.setId(entity.getId());
-        response.setCoords(entity.getCoords());
+        response.setLatitude(entity.getCoords().getX());
+        response.setLongitude(entity.getCoords().getY());
         response.setTimestamp(entity.getTimestamp());
         response.setTrackerId(entity.getTracker().getSerialNumber());
         return response;
