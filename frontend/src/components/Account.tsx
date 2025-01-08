@@ -113,7 +113,7 @@ function Account() {
             )}
           </div>
           <div className="list vehicle-driver-list right">
-            <h2 className="label-font">Kierowcy w pojazdach</h2>
+            <h2 className="label-font">Kierowcy pojazdów</h2>
             {vehicleDrivers?.length ? (
               <ul>
                 {vehicleDrivers.map((driver: VehicleDriverResponse) => (

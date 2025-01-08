@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.4)  6 JAN 2025 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.1.4)  8 JAN 2025 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,11 +1292,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
 
 (C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (main.aux
-
-LaTeX Warning: Label `fig:2' multiply defined.
-
-)
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
@@ -1317,7 +1313,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
 LaTeX Font Info:    ... okay on input line 117.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
 LaTeX Font Info:    ... okay on input line 117.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1580,48 +1575,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Rozdzia\l  4.
 [11]
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-14.
- (C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-14.
+Underfull \vbox (badness 1590) has occurred while \output is active []
 
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-114.
 
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-114.
-
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 114.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 114.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 114.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 114
-.
-
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 114
-.
-
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-(chapters/05.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1637,8 +1593,69 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[13{C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{
-C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
+[13]
+<./graf/home_page.png, id=195, 1431.84938pt x 642.14906pt>
+File: ./graf/home_page.png Graphic file (type png)
+<use ./graf/home_page.png>
+Package pdftex.def Info: ./graf/home_page.png  used on input line 67.
+(pdftex.def)             Requested size: 455.24411pt x 204.15932pt.
+<./graf/login_form.png, id=197, 467.49657pt x 264.23718pt>
+File: ./graf/login_form.png Graphic file (type png)
+<use ./graf/login_form.png>
+Package pdftex.def Info: ./graf/login_form.png  used on input line 74.
+(pdftex.def)             Requested size: 273.14923pt x 154.39467pt.
+<./graf/register_form.png, id=198, 433.62pt x 248.42813pt>
+File: ./graf/register_form.png Graphic file (type png)
+<use ./graf/register_form.png>
+Package pdftex.def Info: ./graf/register_form.png  used on input line 81.
+(pdftex.def)             Requested size: 273.14923pt x 156.49918pt.
+<./graf/user_tab.png, id=199, 942.52126pt x 425.08812pt>
+File: ./graf/user_tab.png Graphic file (type png)
+<use ./graf/user_tab.png>
+Package pdftex.def Info: ./graf/user_tab.png  used on input line 88.
+(pdftex.def)             Requested size: 273.14923pt x 123.19455pt.
+<./graf/driver_tab.png, id=200, 400.99812pt x 129.48375pt>
+File: ./graf/driver_tab.png Graphic file (type png)
+<use ./graf/driver_tab.png>
+Package pdftex.def Info: ./graf/driver_tab.png  used on input line 95.
+(pdftex.def)             Requested size: 273.14923pt x 88.20583pt.
+<./graf/add_driver.png, id=201, 337.76187pt x 309.155pt>
+File: ./graf/add_driver.png Graphic file (type png)
+<use ./graf/add_driver.png>
+Package pdftex.def Info: ./graf/add_driver.png  used on input line 102.
+(pdftex.def)             Requested size: 273.14923pt x 250.02263pt.
+<./graf/driver_tab_2.png, id=202, 396.48125pt x 193.22188pt>
+File: ./graf/driver_tab_2.png Graphic file (type png)
+<use ./graf/driver_tab_2.png>
+Package pdftex.def Info: ./graf/driver_tab_2.png  used on input line 109.
+(pdftex.def)             Requested size: 273.14923pt x 133.11978pt.
+<./graf/vehicle_tab.png, id=203, 397.98688pt x 129.48375pt>
+File: ./graf/vehicle_tab.png Graphic file (type png)
+<use ./graf/vehicle_tab.png>
+Package pdftex.def Info: ./graf/vehicle_tab.png  used on input line 116.
+(pdftex.def)             Requested size: 273.14923pt x 88.87166pt.
+<./graf/add_vehicle.png, id=204, 322.70563pt x 425.08812pt>
+File: ./graf/add_vehicle.png Graphic file (type png)
+<use ./graf/add_vehicle.png>
+Package pdftex.def Info: ./graf/add_vehicle.png  used on input line 123.
+(pdftex.def)             Requested size: 273.14923pt x 359.82826pt.
+<./graf/tracker_tab.png, id=205, 394.97563pt x 188.20313pt>
+File: ./graf/tracker_tab.png Graphic file (type png)
+<use ./graf/tracker_tab.png>
+Package pdftex.def Info: ./graf/tracker_tab.png  used on input line 130.
+(pdftex.def)             Requested size: 273.14923pt x 130.1532pt.
+<./graf/add_tracker.png, id=206, 330.23375pt x 352.31625pt>
+File: ./graf/add_tracker.png Graphic file (type png)
+<use ./graf/add_tracker.png>
+Package pdftex.def Info: ./graf/add_tracker.png  used on input line 137.
+(pdftex.def)             Requested size: 273.14923pt x 291.42249pt.
+<./graf/add_driver_vehicle.png, id=207, 307.1475pt x 415.5525pt>
+File: ./graf/add_driver_vehicle.png Graphic file (type png)
+<use ./graf/add_driver_vehicle.png>
+Package pdftex.def Info: ./graf/add_driver_vehicle.png  used on input line 144.
+
+(pdftex.def)             Requested size: 273.14923pt x 369.58058pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1646,16 +1663,75 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[14
+[14 <./graf/home_page.png>]
 
-]
-Rozdzia\l  5.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-3.
-(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15 <./graf/login_form.png> <./graf/register_form.png> <./graf/user_tab.png> <.
+/graf/driver_tab.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16 <./graf/add_driver.png> <./graf/driver_tab_2.png> <./graf/vehicle_tab.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[17 <./graf/add_vehicle.png> <./graf/tracker_tab.png>]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+31.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+31.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+231.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+231.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 231.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 231.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 231.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 231
+.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 231
+.
+
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-(chapters/06.tex [15]
+(chapters/05.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1663,11 +1739,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16
-
-]
-Rozdzia\l  6.
-) (chapters/07.tex [17]
+[18 <./graf/add_tracker.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1675,12 +1747,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[18{C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
-nc}]
-Rozdzia\l  7.
-) [19
-
-]
+[19{C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{
+C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc} 
+<./graf/add_driver_vehicle.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1690,9 +1759,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20
 
-] [21
-
 ]
+Rozdzia\l  5.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+3.
+(C:\Users\SQ182\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(chapters/06.tex [21]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1702,7 +1776,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22
 
-] [23] [24] (chapters/08.tex) (chapters/09.tex [25
+]
+Rozdzia\l  6.
+) (chapters/07.tex [23]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[24{C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.e
+nc}]
+Rozdzia\l  7.
+) [25
 
 ]
 
@@ -1714,7 +1801,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [26
 
-]) (chapters/10.tex [27]
+] [27
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1724,27 +1813,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [28
 
+] [29] [30] (chapters/08.tex) (chapters/09.tex [31
+
 ]
-Overfull \hbox (2.38579pt too wide) in paragraph at lines 8--9
-[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-
-nia lub za-pro-jek-to-wa-nego i wy-
- []
-
-) [29]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[30
-
-] (main.lof)
-\tf@lof=\write7
-\openout7 = `main.lof'.
-
- [31]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1754,86 +1825,84 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [32
 
+]) (chapters/10.tex [33]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[34
+
+]
+Overfull \hbox (2.38579pt too wide) in paragraph at lines 8--9
+[]\T1/lmr/m/n/12 film po-ka-zu-j¡cy dzia-ªa-nie opra-co-wa-nego opro-gra-mo-wa-
+nia lub za-pro-jek-to-wa-nego i wy-
+ []
+
+) [35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[36
+
+] (main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [37]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[38
+
 ] (main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [33] (main.aux)
+ [39] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 4D194701E798C5FA3D70148E8117EF00;1911
-(rerunfilecheck)             After:  1766FDC0A3715537AFDA00835F06390D;1911.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: D615B2DCA3E09F1C72C8518BC6B136CA;1911.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45682 strings out of 474485
- 1011912 string characters out of 5743735
+ 45798 strings out of 474485
+ 1014705 string characters out of 5743735
  1997542 words of memory out of 5000000
- 67113 multiletter control sequences out of 15000+600000
+ 67210 multiletter control sequences out of 15000+600000
  610800 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,11n,96p,2234b,3506s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{table.caption.25} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.23} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{figure.caption.24} has been referenced but does not
- exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix*.30} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix*.29} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix*.28} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix*.27} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter*.26} has been referenced but does not exist
-, replaced by a fixed one
-
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb>
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb
-><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb
-><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C
-:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C
-:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C
-:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb>
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on main.pdf (39 pages, 357381 bytes).
+<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
+b><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.p
+fb><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.p
+fb><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb>
+<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb>
+<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb>
+<C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pf
+b><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pf
+b><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pf
+b><C:/Users/SQ182/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb>
+Output written on main.pdf (45 pages, 1253131 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 483 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

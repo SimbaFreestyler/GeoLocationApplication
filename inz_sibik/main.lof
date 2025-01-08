@@ -11,9 +11,21 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia niezalogowanego użytkownika.}}{7}{figure.caption.18}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram przypadków użycia zalogowanego użytkownika.}}{8}{figure.caption.19}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Podpis rysunku po rysunkiem.}}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Zrzut ekranu przedstawiający stronę główną.}}{14}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zrzut ekranu przedstawiający formularz logowania.}}{15}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Zrzut ekranu przedstawiający formularz rejestracji.}}{15}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Moje konto.}}{15}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy.}}{15}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania kierowcy.}}{16}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy z jednym kierowcą na liście.}}{16}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Pojazdy.}}{16}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania pojazdu.}}{17}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Lokalizatory.}}{17}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania lokalizatora.}}{18}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania kierowcy z pojazdem.}}{19}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Podpis rysunku po rysunkiem.}}{19}{figure.caption.48}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{15}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{21}{figure.caption.49}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
