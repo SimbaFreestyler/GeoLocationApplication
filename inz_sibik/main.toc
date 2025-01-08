@@ -35,17 +35,20 @@
 \contentsline {paragraph}{}{13}{section*.32}%
 \contentsline {paragraph}{}{14}{section*.33}%
 \contentsline {paragraph}{}{14}{section*.34}%
-\contentsline {paragraph}{title}{14}{figure.caption.47}%
-\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{21}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{23}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{25}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{27}{chapter*.51}%
-\contentsline {chapter}{Spis skrótów i symboli}{31}{appendix*.52}%
+\contentsline {paragraph}{}{14}{section*.35}%
+\contentsline {paragraph}{}{14}{section*.36}%
+\contentsline {paragraph}{}{15}{section*.37}%
+\contentsline {paragraph}{}{15}{section*.38}%
+\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{27}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{29}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{31}{chapter*.59}%
+\contentsline {chapter}{Spis skrótów i symboli}{35}{appendix*.60}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{33}{appendix*.53}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{35}{appendix*.54}%
-\contentsline {chapter}{Spis rysunków}{37}{appendix*.55}%
-\contentsline {chapter}{Spis tabel}{39}{appendix*.56}%
+\contentsline {chapter}{Źródła}{37}{appendix*.61}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{39}{appendix*.62}%
+\contentsline {chapter}{Spis rysunków}{41}{appendix*.63}%
+\contentsline {chapter}{Spis tabel}{43}{appendix*.64}%

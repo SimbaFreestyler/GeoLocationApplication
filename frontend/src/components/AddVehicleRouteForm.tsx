@@ -54,12 +54,12 @@ function AddVehicleRouteForm({ onClose, onAddVehicle: onAddDriver }: Props) {
       <div className="form-box">
         <h1 className="form-title">Dodaj trasę pojazdu do mapy</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label className="form-label" htmlFor="driverId">
-            Wybierz kierowcę
+          <label className="form-label" htmlFor="vehicleId">
+            Wybierz pojazd
           </label>
           <select
             className="form-input"
-            id="driverId"
+            id="vehicleId"
             {...register("registrationNumber", {
               required: "Wybór pojazdu jest wymagany",
             })}
