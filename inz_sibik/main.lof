@@ -11,9 +11,26 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia niezalogowanego użytkownika.}}{7}{figure.caption.18}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram przypadków użycia zalogowanego użytkownika.}}{8}{figure.caption.19}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Podpis rysunku po rysunkiem.}}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Zrzut ekranu przedstawiający stronę główną.}}{15}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zrzut ekranu przedstawiający formularz logowania.}}{16}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Zrzut ekranu przedstawiający formularz rejestracji.}}{16}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Moje konto.}}{16}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy.}}{16}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania kierowcy.}}{17}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy z jednym kierowcą na liście.}}{17}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Pojazdy.}}{17}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania pojazdu.}}{18}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Lokalizatory.}}{18}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania lokalizatora.}}{19}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania kierowcy z pojazdem.}}{20}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania lokalizatora z pojazdem.}}{21}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Mapa.}}{21}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy kierowcy.}}{22}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy pojazdu.}}{23}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Zrzut ekranu przedstawiający mapę z jedną trasą.}}{24}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Podpis rysunku po rysunkiem.}}{24}{figure.caption.56}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{15}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{25}{figure.caption.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -27,16 +27,28 @@
 \contentsline {paragraph}{}{11}{section*.24}%
 \contentsline {paragraph}{}{12}{section*.25}%
 \contentsline {paragraph}{}{12}{section*.26}%
-\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{15}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{17}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{19}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{21}{chapter*.30}%
-\contentsline {chapter}{Spis skrótów i symboli}{25}{appendix*.31}%
+\contentsline {paragraph}{}{12}{section*.27}%
+\contentsline {paragraph}{}{12}{section*.28}%
+\contentsline {paragraph}{}{13}{section*.29}%
+\contentsline {paragraph}{}{13}{section*.30}%
+\contentsline {paragraph}{}{13}{section*.31}%
+\contentsline {paragraph}{}{13}{section*.32}%
+\contentsline {paragraph}{}{14}{section*.33}%
+\contentsline {paragraph}{}{14}{section*.34}%
+\contentsline {paragraph}{}{14}{section*.35}%
+\contentsline {paragraph}{}{14}{section*.36}%
+\contentsline {paragraph}{}{15}{section*.37}%
+\contentsline {paragraph}{}{15}{section*.38}%
+\contentsline {chapter}{\numberline {5}Specyfikacja wewnętrzna}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{27}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{29}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{31}{chapter*.59}%
+\contentsline {chapter}{Spis skrótów i symboli}{35}{appendix*.60}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{27}{appendix*.32}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{29}{appendix*.33}%
-\contentsline {chapter}{Spis rysunków}{31}{appendix*.34}%
-\contentsline {chapter}{Spis tabel}{33}{appendix*.35}%
+\contentsline {chapter}{Źródła}{37}{appendix*.61}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{39}{appendix*.62}%
+\contentsline {chapter}{Spis rysunków}{41}{appendix*.63}%
+\contentsline {chapter}{Spis tabel}{43}{appendix*.64}%
