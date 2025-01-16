@@ -35,6 +35,15 @@ export interface LocationResponse {
   trackerId: string | null;
 }
 
+export interface RouteRequest {
+  driverId: number | null;
+  endDate: string | null;
+  periodType: PeriodType;
+  startDate: string | null;
+  trackerId: string | null;
+  vehicleId: string | null;
+}
+
 export interface TrackerRequest {
   name: string;
   serialNumber: string;
@@ -104,3 +113,5 @@ export interface VehicleTrackerResponse {
   tracker: TrackerResponse | null;
   vehicle: VehicleResponse | null;
 }
+
+export type PeriodType = "TODAY" | "YESTERDAY" | "LAST_WEEK" | "LAST_MONTH" | "LAST_YEAR" | "CUSTOM";
