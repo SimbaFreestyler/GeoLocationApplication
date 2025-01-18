@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import leaflet from "leaflet";
 import "../css/map.css";
-import { PeriodType } from "../dto/dto";
+import {
+  DriverResponse,
+  PeriodType,
+  TrackerResponse,
+  VehicleResponse,
+} from "../dto/dto";
+import { getTrackers } from "../actions/trackers";
+import { getVehicles } from "../actions/vehicles";
+import { getDrivers } from "../actions/drivers";
 
 type Point = {
   latitude: number;
@@ -29,6 +37,21 @@ const periodTypeOptions = [
 
 function Map() {
   const mapRef = useRef<leaflet.Map | null>(null);
+  const [trackers, setTrackers] = useState<TrackerResponse[]>([]);
+  const [vehicles, setVehicles] = useState<VehicleResponse[]>([]);
+  const [drivers, setDrivers] = useState<DriverResponse[]>([]);
+  const loadTrackerData = async () => {
+    const data = await getTrackers();
+    setTrackers(data ?? []);
+  };
+  const loadVehicleData = async () => {
+    const data = await getVehicles();
+    setVehicles(data ?? []);
+  };
+  const loadDriverData = async () => {
+    const data = await getDrivers();
+    setDrivers(data ?? []);
+  };
 
   const [formValues, setFormValues] = useState<FormValues>({
     routeType: "Lokalizator",
@@ -47,6 +70,9 @@ function Map() {
         })
         .addTo(mapRef.current);
     }
+    loadTrackerData();
+    loadVehicleData();
+    loadDriverData();
 
     return () => {
       mapRef.current?.remove();
@@ -96,6 +122,90 @@ function Map() {
               </option>
             ))}
           </select>
+        </div>
+
+        <div className="dropdown-container">
+          {formValues.routeType == "Lokalizator" && (
+            <>
+              <label className="dropdown-label" htmlFor="trackerDropdown">
+                Lokalizator:
+              </label>
+              <select
+                id="trackerDropdown"
+                className="dropdown"
+                value={formValues.trackerId || ""}
+                onChange={(e) => handleInputChange("trackerId", e.target.value)}
+                disabled={trackers.length === 0}
+              >
+                {trackers.length === 0 ? (
+                  <option value="">Brak dostępnych lokalizatorów</option>
+                ) : (
+                  trackers.map((tracker) => (
+                    <option
+                      key={tracker.serialNumber}
+                      value={tracker.serialNumber}
+                    >
+                      {tracker.name} - {tracker.serialNumber}
+                    </option>
+                  ))
+                )}
+              </select>
+            </>
+          )}
+
+          {formValues.routeType == "Pojazd" && (
+            <>
+              <label className="dropdown-label" htmlFor="vehicleDropdown">
+                Pojazd:
+              </label>
+              <select
+                id="vehicleDropdown"
+                className="dropdown"
+                value={formValues.vehicleId || ""}
+                onChange={(e) => handleInputChange("vehicleId", e.target.value)}
+                disabled={vehicles.length === 0}
+              >
+                {vehicles.length === 0 ? (
+                  <option value="">Brak dostępnych pojazdów</option>
+                ) : (
+                  vehicles.map((vehicle) => (
+                    <option
+                      key={vehicle.registrationNumber}
+                      value={vehicle.registrationNumber}
+                    >
+                      {vehicle.brand} {vehicle.model} -{" "}
+                      {vehicle.registrationNumber}
+                    </option>
+                  ))
+                )}
+              </select>
+            </>
+          )}
+
+          {formValues.routeType == "Kierowca" && (
+            <>
+              <label className="dropdown-label" htmlFor="driverDropdown">
+                Kierowca:
+              </label>
+              <select
+                id="driverDropdown"
+                className="dropdown"
+                value={formValues.driverId || ""}
+                onChange={(e) => handleInputChange("driverId", e.target.value)}
+                disabled={drivers.length === 0}
+              >
+                {drivers.length === 0 ? (
+                  <option value="">Brak dostępnych kierowców</option>
+                ) : (
+                  drivers.map((driver) => (
+                    <option key={driver.id} value={driver.id}>
+                      {driver.name} {driver.surname}
+                    </option>
+                  ))
+                )}
+              </select>
+            </>
+          )}
         </div>
 
         <div id="map" style={{ height: "50vh", width: "100%" }}></div>

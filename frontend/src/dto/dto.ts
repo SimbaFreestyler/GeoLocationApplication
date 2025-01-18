@@ -12,9 +12,9 @@ export interface DriverRequest {
 }
 
 export interface DriverResponse {
-  id: number | null;
-  name: string | null;
-  surname: string | null;
+  id: number;
+  name: string;
+  surname: string;
 }
 
 export interface ErrorResponse {

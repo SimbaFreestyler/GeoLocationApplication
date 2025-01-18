@@ -2,11 +2,16 @@ package pl.polsl.geoapp.dto.driver;
 
 import pl.polsl.geoapp.model.DriverEntity;
 
+import javax.validation.constraints.NotNull;
+
 public class DriverResponse {
+    @NotNull
     private Integer id;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String surname;
 
     public Integer getId() {
