@@ -25,21 +25,20 @@ function AddTrackerForm({ onClose }: Props) {
 
   const onAddVehicleSubmit: SubmitHandler<FormState> = async (data) => {
     const trackerRequest: TrackerRequest = {
-          serialNumber: data.serialNumber,
-          name: data.name,
-          type: data.type,
-      };
-    
-      const createdTracker = await createTracker(trackerRequest);
-    
-      if (createdTracker) {
-          console.log("Tracker created successfully:", createdTracker);
-          onClose();
-          reset();
-      } else {
-          console.error("Failed to create tracker.");
-      
-      };
+      serialNumber: data.serialNumber,
+      name: data.name,
+      type: data.type,
+    };
+
+    const createdTracker = await createTracker(trackerRequest);
+
+    if (createdTracker) {
+      console.log("Tracker created successfully:", createdTracker);
+      onClose();
+      reset();
+    } else {
+      console.error("Failed to create tracker.");
+    }
   };
 
   return (
@@ -48,47 +47,32 @@ function AddTrackerForm({ onClose }: Props) {
         <div className="form-box">
           <h1 className="form-title">Dodaj nowy lokalizator</h1>
           <form onSubmit={handleSubmit(onAddVehicleSubmit)}>
-            <label className="form-label" htmlFor="name">
-              Nazwa
-            </label>
+            <label className="form-label" htmlFor="name">Nazwa</label>
             <input
               className="form-input"
               id="name"
-              {...register("name", {
-                required: "Nazwa jest wymagana",
-              })}
+              {...register("name", { required: "Nazwa jest wymagana" })}
             />
-            <label className="form-label" htmlFor="serialNumber">
-              Numer seryjny
-            </label>
+            {errors.name && <p className="form-error form-validation-text">{errors.name.message}</p>}
+
+            <label className="form-label" htmlFor="serialNumber">Numer seryjny</label>
             <input
               className="form-input"
               id="serialNumber"
-              {...register("serialNumber", {
-                required: "Numer seryjny jest wymagany",
-              })}
+              {...register("serialNumber", { required: "Numer seryjny jest wymagany" })}
             />
-            <label className="form-label" htmlFor="type">
-              Typ
-            </label>
+            {errors.serialNumber && <p className=" form-errorform-validation-text">{errors.serialNumber.message}</p>}
+
+            <label className="form-label" htmlFor="type">Typ</label>
             <input
               className="form-input"
               id="type"
-              {...register("type", {
-                required: "Typ jest wymagana",
-              })}
+              {...register("type", { required: "Typ jest wymagany" })}
             />
-            <input
-              className="form-btn add"
-              type="submit"
-              value="Dodaj Lokalizator"
-            />
-            <input
-              className="form-btn delete"
-              type="button"
-              value="Anuluj"
-              onClick={() => onClose()}
-            />
+            {errors.type && <p className=" form-errorform-validation-text">{errors.type.message}</p>}
+
+            <input className="form-btn add" type="submit" value="Dodaj Lokalizator" />
+            <input className="form-btn delete" type="button" value="Anuluj" onClick={() => onClose()} />
           </form>
         </div>
       </div>

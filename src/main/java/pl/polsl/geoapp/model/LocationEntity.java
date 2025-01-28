@@ -2,8 +2,6 @@ package pl.polsl.geoapp.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-
-import org.hibernate.annotations.Type;
 import org.locationtech.jts.geom.Point;
 
 @Entity

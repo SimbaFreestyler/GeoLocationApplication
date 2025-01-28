@@ -1,10 +1,8 @@
 package pl.polsl.geoapp.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pl.polsl.geoapp.dto.location.LocationRequest;
 import pl.polsl.geoapp.dto.location.LocationResponse;
 import pl.polsl.geoapp.service.LocationService;
 
@@ -33,5 +31,10 @@ public class LocationController {
                                                                       @PathVariable LocalDate startDate,
                                                                       @PathVariable LocalDate endDate) {
         return ResponseEntity.ok(locationService.getDriverLocations(driverId, startDate, endDate));
+    }
+
+    @PostMapping("")
+    public ResponseEntity<List<LocationResponse>> getLocations(@RequestBody LocationRequest locationRequest) {
+        return ResponseEntity.ok(locationService.getLocations(locationRequest));
     }
 }

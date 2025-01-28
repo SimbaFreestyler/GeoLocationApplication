@@ -5,6 +5,7 @@ import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Service;
+import pl.polsl.geoapp.dto.location.LocationRequest;
 import pl.polsl.geoapp.dto.location.LocationResponse;
 import pl.polsl.geoapp.dto.location.VehicleRouteResponse;
 import pl.polsl.geoapp.repository.LocationRepository;
@@ -35,6 +36,54 @@ public class LocationService {
 
     public Point createPoint(double longitude, double latitude) {
         return geometryFactory.createPoint(new Coordinate(longitude, latitude));
+    }
+
+    @Transactional
+    public List<LocationResponse> getLocations(LocationRequest locationRequest) {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = LocalDate.now();
+        switch (locationRequest.getPeriodType()) {
+            case TODAY -> {
+                startDate = LocalDate.now();
+                endDate = LocalDate.now();
+            }
+            case YESTERDAY -> {
+                startDate = LocalDate.now().minusDays(1L);
+                endDate = LocalDate.now().minusDays(1L);
+            }
+            case LAST_WEEK -> {
+                startDate = LocalDate.now().minusWeeks(1L);
+                endDate = LocalDate.now();
+            }
+            case LAST_MONTH -> {
+                startDate = LocalDate.now().minusMonths(1L);
+                endDate = LocalDate.now();
+            }
+            case LAST_YEAR -> {
+                startDate = LocalDate.now().minusYears(1L);
+                endDate = LocalDate.now();
+            }
+            case CUSTOM -> {
+                startDate = locationRequest.getStartDate();
+                endDate = locationRequest.getEndDate();
+            }
+        }
+        switch (locationRequest.getRouteType()) {
+            case "Lokalizator" -> {
+                List<LocationResponse> locations = locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
+                        locationRequest.getTrackerId(), startDate.atStartOfDay(),
+                                endDate.plusDays(1L).atStartOfDay())
+                        .stream().map(LocationResponse::fromEntity).toList();
+                return locations;
+            }
+            case "Pojazd" -> {
+                getVehicleLocations(locationRequest.getVehicleId(), startDate, endDate);
+            }
+            case "Kierowca" -> {
+                getDriverLocations(locationRequest.getDriverId(), startDate, endDate);
+            }
+        }
+        return new ArrayList<>();
     }
 
     @Transactional

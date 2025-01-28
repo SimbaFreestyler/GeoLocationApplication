@@ -30,19 +30,18 @@ function AddVehicleForm({onClose}: Props) {
       model: data.model,
       registrationNumber: data.registrationNumber,
       vinNumber: data.vinNumber,
-  };
+    };
 
-  const createdVehicle = await createVehicle(vehicleRequest);
+    const createdVehicle = await createVehicle(vehicleRequest);
 
-  if (createdVehicle) {
+    if (createdVehicle) {
       console.log("Vehicle created successfully:", createdVehicle);
       onClose();
       reset();
-  } else {
+    } else {
       console.error("Failed to create vehicle.");
-  
+    }
   };
-}
 
   return (
     formState === "addVehicle" && (
@@ -58,6 +57,10 @@ function AddVehicleForm({onClose}: Props) {
               id="brand"
               {...register("brand", { required: "Marka jest wymagana" })}
             />
+            {errors.brand && (
+              <p className="form-error form-validation-text">{errors.brand.message}</p>
+            )}
+
             <label className="form-label" htmlFor="model">
               Model
             </label>
@@ -66,6 +69,10 @@ function AddVehicleForm({onClose}: Props) {
               id="model"
               {...register("model", { required: "Model jest wymagany" })}
             />
+            {errors.model && (
+              <p className="form-error form-validation-text">{errors.model.message}</p>
+            )}
+
             <label className="form-label" htmlFor="registrationNumber">
               Tablica rejestracyjna
             </label>
@@ -74,6 +81,10 @@ function AddVehicleForm({onClose}: Props) {
               id="registrationNumber"
               {...register("registrationNumber", { required: "Tablica rejestracyjna jest wymagana" })}
             />
+            {errors.registrationNumber && (
+              <p className="form-error form-validation-text">{errors.registrationNumber.message}</p>
+            )}
+
             <label className="form-label" htmlFor="vinNumber">
               VIN
             </label>
@@ -82,8 +93,12 @@ function AddVehicleForm({onClose}: Props) {
               id="vinNumber"
               {...register("vinNumber", { required: "VIN jest wymagany" })}
             />
+            {errors.vinNumber && (
+              <p className="form-error form-validation-text">{errors.vinNumber.message}</p>
+            )}
+
             <input className="form-btn add" type="submit" value="Dodaj pojazd" />
-            <input className="form-btn delete" type="button" value="Anuluj" onClick={() => onClose()}/>
+            <input className="form-btn delete" type="button" value="Anuluj" onClick={() => onClose()} />
           </form>
         </div>
       </div>

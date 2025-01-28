@@ -3,6 +3,8 @@ import leaflet from "leaflet";
 import "../css/map.css";
 import {
   DriverResponse,
+  LocationRequest,
+  LocationResponse,
   PeriodType,
   TrackerResponse,
   VehicleResponse,
@@ -10,11 +12,12 @@ import {
 import { getTrackers } from "../actions/trackers";
 import { getVehicles } from "../actions/vehicles";
 import { getDrivers } from "../actions/drivers";
+import { getLocations } from "../actions/locations";
 
 type Point = {
   latitude: number;
   longitude: number;
-};
+};   
 
 type FormValues = {
   routeType: string;
@@ -37,6 +40,7 @@ const periodTypeOptions = [
 
 function Map() {
   const mapRef = useRef<leaflet.Map | null>(null);
+  const [locations, setLocations] = useState<LocationResponse[]>([]);
   const [trackers, setTrackers] = useState<TrackerResponse[]>([]);
   const [vehicles, setVehicles] = useState<VehicleResponse[]>([]);
   const [drivers, setDrivers] = useState<DriverResponse[]>([]);
@@ -57,6 +61,34 @@ function Map() {
     routeType: "Lokalizator",
     periodType: "TODAY" as PeriodType,
   });
+
+  const fetchLocations = async () => {
+    setLocations(await getLocations(formValues as LocationRequest) ?? []);
+  }
+
+  useEffect(() => {
+    console.log('Form values changed', formValues);
+    fetchLocations();
+  }, [formValues])
+
+  useEffect(() => {
+    console.log('Zmineiły się?', locations);
+    if (!mapRef.current) return;
+  
+    mapRef.current.eachLayer((layer) => {
+      if (layer instanceof leaflet.Polyline) {
+        mapRef.current?.removeLayer(layer);
+      }
+    });
+  
+    const latLngs: [number, number][] = locations
+      .filter(loc => loc.latitude !== null && loc.longitude !== null)
+      .map(loc => [loc.latitude as number, loc.longitude as number]);
+  
+    if (latLngs.length > 1) {
+      leaflet.polyline(latLngs, { color: "blue", weight: 4 }).addTo(mapRef.current!);
+    }
+  }, [locations]);
 
   useEffect(() => {
     if (!mapRef.current && document.getElementById("map")) {
@@ -81,6 +113,7 @@ function Map() {
   }, []);
 
   const handleInputChange = (field: keyof FormValues, value: string) => {
+    console.log(formValues);
     setFormValues((prev) => ({
       ...prev,
       [field]: value,
@@ -106,25 +139,6 @@ function Map() {
             <option value="Pojazd">Pojazd</option>
             <option value="Kierowca">Kierowca</option>
           </select>
-
-          <label className="dropdown-label" htmlFor="periodTypeDropdown">
-            Okres:
-          </label>
-          <select
-            id="periodTypeDropdown"
-            className="dropdown"
-            value={formValues.periodType}
-            onChange={(e) => handleInputChange("periodType", e.target.value)}
-          >
-            {periodTypeOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="dropdown-container">
           {formValues.routeType == "Lokalizator" && (
             <>
               <label className="dropdown-label" htmlFor="trackerDropdown">
@@ -204,6 +218,53 @@ function Map() {
                   ))
                 )}
               </select>
+            </>
+          )}
+        </div>
+
+        <div className="dropdown-container">
+          <label className="dropdown-label" htmlFor="periodTypeDropdown">
+            Okres:
+          </label>
+          <select
+            id="periodTypeDropdown"
+            className="dropdown"
+            value={formValues.periodType}
+            onChange={(e) => handleInputChange("periodType", e.target.value)}
+          >
+            {periodTypeOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          {formValues.periodType == 'CUSTOM' && (
+            <>
+              <label className="dropdown-label" htmlFor="startDate">
+                Data od:
+              </label>
+              <input
+                type="date"
+                id="startDate"
+                className="date-input"
+                value={formValues.startDate || ""}
+                onChange={(e) => handleInputChange("startDate", e.target.value)}
+              />
+            </>
+          )}
+
+          {formValues.periodType == 'CUSTOM' && (
+            <>
+              <label className="dropdown-label" htmlFor="endDate">
+                Data do:
+              </label>
+              <input
+                type="date"
+                id="endDate"
+                className="date-input"
+                value={formValues.endDate || ""}
+                onChange={(e) => handleInputChange("endDate", e.target.value)}
+              />
             </>
           )}
         </div>

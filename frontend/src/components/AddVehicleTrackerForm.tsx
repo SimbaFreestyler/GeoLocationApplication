@@ -86,7 +86,7 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             ))}
           </select>
           {errors.vehicleId && (
-            <span className="form-error">{errors.vehicleId.message}</span>
+            <span className="form-error form-validation-text">{errors.vehicleId.message}</span>
           )}
 
           <label className="form-label" htmlFor="trackerId">
@@ -107,7 +107,7 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             ))}
           </select>
           {errors.trackerId && (
-            <span className="form-error">{errors.trackerId.message}</span>
+            <span className="form-error form-validation-text">{errors.trackerId.message}</span>
           )}
 
           <label className="form-label" htmlFor="startDate">
@@ -122,7 +122,7 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             })}
           />
           {errors.startDate && (
-            <span className="form-error">{errors.startDate.message}</span>
+            <span className="form-error form-validation-text">{errors.startDate.message}</span>
           )}
 
           <label className="form-label" htmlFor="endDate">

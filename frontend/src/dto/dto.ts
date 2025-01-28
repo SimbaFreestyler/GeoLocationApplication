@@ -22,9 +22,13 @@ export interface ErrorResponse {
 }
 
 export interface LocationRequest {
-  name: string | null;
-  serialNumber: string | null;
-  type: string | null;
+  driverId: number | null;
+  endDate: string | null;
+  periodType: PeriodType | null;
+  routeType: string | null;
+  startDate: string | null;
+  trackerId: string | null;
+  vehicleId: string | null;
 }
 
 export interface LocationResponse {

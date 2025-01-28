@@ -2,18 +2,20 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { request, setAuthToken } from "./requestConfig";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../login.css";
 
 type Props = {
   loggedState: string;
   SetLoggedState: (state: string) => void;
-}
+};
 
 type FormState = {
   email: string;
   password: string;
-  name: string;
-  surname: string;
+  name?: string;
+  surname?: string;
 };
 
 function LoginForm(props: Props) {
@@ -24,25 +26,36 @@ function LoginForm(props: Props) {
     formState: { errors },
     reset,
   } = useForm<FormState>();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const onLoginSubmit: SubmitHandler<FormState> = (data) => {
     request("POST", "/login", {
       email: data.email,
-      password: data.password
-    }).then((response) => { 
-      console.log(response.status);
-      setAuthToken(response.data.token);
-      props.SetLoggedState("loggedIn");
-      navigate("/account");
+      password: data.password,
     })
+      .then((response) => {
+        setAuthToken(response.data.token);
+        props.SetLoggedState("loggedIn");
+        toast.success("Logowanie udane! Przekierowanie...");
+        setTimeout(() => navigate("/account"), 1500);
+      })
+      .catch(() => {
+        toast.error("Błąd logowania. Sprawdź dane i spróbuj ponownie.");
+      });
   };
 
   const onRegisterSubmit: SubmitHandler<FormState> = (data) => {
     request("POST", "/register", {
       email: data.email,
       password: data.password,
-    });
+    })
+      .then(() => {
+        toast.success("Rejestracja zakończona sukcesem! Możesz się teraz zalogować.");
+        setTimeout(() => setFormState("login"), 1500);
+      })
+      .catch(() => {
+        toast.error("Błąd rejestracji. Spróbuj ponownie później.");
+      });
   };
 
   const handleSwitchForm = (targetForm: string) => {
@@ -51,52 +64,13 @@ function LoginForm(props: Props) {
   };
 
   return (
-    formState === "login" && (
-      <div className="login-container">
-        <div className="login-box">
-          <h1 className="title">Zaloguj się na swoje konto</h1>
-          <form onSubmit={handleSubmit(onLoginSubmit)}>
-            <label className="label-font" htmlFor="email">
-              Email
-            </label>
-            <input
-              className="deep-input"
-              id="email"
-              {...register("email", {
-                required: "Adres e-mail jest wymagany",
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Nieprawidłowy adres e-mail",
-                },
-              })}
-            />
-            <label className="label-font" htmlFor="password">
-              Hasło
-            </label>
-            <input
-            type="password"
-              className="deep-input"
-              id="password"
-              {...register("password", { required: true })}
-            />
-            <input className="btn btn-primary" type="submit" value="Zaloguj" />
-            <button
-            type="button"
-            onClick={() => handleSwitchForm("register")}
-            className="register-link">
-              Nie masz jeszcze konta? Zarejestruj się
-            </button>
-          </form>
-        </div>
-      </div>
-    ) ||
-    formState === "register" && (<div className="login-container">
+    <div className="login-container">
       <div className="login-box">
-        <h1 className="title">Utwórz nowe konto</h1>
-        <form onSubmit={handleSubmit(onRegisterSubmit)}>
-          <label className="label-font" htmlFor="email">
-            Email
-          </label>
+        <h1 className="title">
+          {formState === "login" ? "Zaloguj się na swoje konto" : "Utwórz nowe konto"}
+        </h1>
+        <form onSubmit={handleSubmit(formState === "login" ? onLoginSubmit : onRegisterSubmit)}>
+          <label className="label-font" htmlFor="email">Email</label>
           <input
             className="deep-input"
             id="email"
@@ -108,25 +82,33 @@ function LoginForm(props: Props) {
               },
             })}
           />
-          <label className="label-font" htmlFor="password">
-            Hasło
-          </label>
+          {errors.email && <p className="error">{errors.email.message}</p>}
+
+          <label className="label-font" htmlFor="password">Hasło</label>
           <input
             type="password"
             className="deep-input"
             id="password"
-            {...register("password", { required: true })}
+            {...register("password", { required: "Hasło jest wymagane" })}
           />
-          <input className="btn btn-primary" type="submit" value="Zarejestruj się" />
+          {errors.password && <p className="error">{errors.password.message}</p>}
+
+          <input
+            className="btn btn-primary"
+            type="submit"
+            value={formState === "login" ? "Zaloguj" : "Zarejestruj się"}
+          />
           <button
-          type="button"
-          onClick={() => handleSwitchForm("login")} 
-          className="register-link">
-            Masz już konto? Zaloguj się
+            type="button"
+            onClick={() => handleSwitchForm(formState === "login" ? "register" : "login")}
+            className="register-link"
+          >
+            {formState === "login" ? "Nie masz konta? Zarejestruj się" : "Masz już konto? Zaloguj się"}
           </button>
         </form>
       </div>
-    </div>)
+      <ToastContainer position="top-right" theme="dark" autoClose={3000} />
+    </div>
   );
 }
 

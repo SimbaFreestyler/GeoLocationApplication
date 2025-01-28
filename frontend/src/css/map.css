@@ -39,8 +39,9 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-
-  .dropdown {
+ 
+  .dropdown,
+  .date-input {
     width: 100%;
     max-width: 300px;
     padding: 10px 15px;

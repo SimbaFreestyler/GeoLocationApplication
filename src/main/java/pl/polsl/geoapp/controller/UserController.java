@@ -21,11 +21,11 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<UserResponse> login(@RequestBody UserRequest request) {
-        return new ResponseEntity<>(userService.login(request), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userService.login(request), HttpStatus.CREATED);
     }
     @PostMapping("/register")
     public ResponseEntity<UserResponse> register(@RequestBody UserRequest request) {
-        return new ResponseEntity<>(userService.register(request), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userService.register(request), HttpStatus.CREATED);
     }
 
     @GetMapping("/user")

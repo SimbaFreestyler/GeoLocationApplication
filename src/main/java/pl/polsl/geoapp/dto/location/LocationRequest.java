@@ -1,33 +1,77 @@
 package pl.polsl.geoapp.dto.location;
 
+import pl.polsl.geoapp.dto.PeriodType;
+
+import java.time.LocalDate;
+
 public class LocationRequest {
-    private String serialNumber;
+    private String routeType;
 
-    private String name;
+    private PeriodType periodType;
 
-    private String type;
+    private String trackerId;
 
-    public String getSerialNumber() {
-        return serialNumber;
+    private String vehicleId;
+
+    private Integer driverId;
+
+    private LocalDate startDate;
+
+    private LocalDate endDate;
+
+    public String getRouteType() {
+        return routeType;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
+    public void setRouteType(String routeType) {
+        this.routeType = routeType;
     }
 
-    public String getName() {
-        return name;
+    public PeriodType getPeriodType() {
+        return periodType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPeriodType(PeriodType periodType) {
+        this.periodType = periodType;
     }
 
-    public String getType() {
-        return type;
+    public String getTrackerId() {
+        return trackerId;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTrackerId(String trackerId) {
+        this.trackerId = trackerId;
+    }
+
+    public String getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(String vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public Integer getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Integer driverId) {
+        this.driverId = driverId;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
 }
