@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import pl.polsl.geoapp.dto.location.LocationRequest;
 import pl.polsl.geoapp.dto.location.LocationResponse;
 import pl.polsl.geoapp.dto.location.VehicleRouteResponse;
+import pl.polsl.geoapp.model.LocationEntity;
 import pl.polsl.geoapp.repository.LocationRepository;
 import pl.polsl.geoapp.repository.VehicleDriverRepository;
 import pl.polsl.geoapp.repository.VehicleTrackerRepository;
@@ -70,10 +71,15 @@ public class LocationService {
         }
         switch (locationRequest.getRouteType()) {
             case "Lokalizator" -> {
+                List<LocationEntity> locationsss = locationRepository.findAll();
                 List<LocationResponse> locations = locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
                         locationRequest.getTrackerId(), startDate.atStartOfDay(),
                                 endDate.plusDays(1L).atStartOfDay())
                         .stream().map(LocationResponse::fromEntity).toList();
+                List<LocationEntity> locations2 = locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
+                        locationRequest.getTrackerId(), startDate.atStartOfDay(),
+                        endDate.plusDays(1L).atStartOfDay())
+                    .stream().toList();
                 return locations;
             }
             case "Pojazd" -> {

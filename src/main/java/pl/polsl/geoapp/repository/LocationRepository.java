@@ -9,6 +9,8 @@ import java.util.List;
 public interface LocationRepository extends CrudRepository<LocationEntity, Integer> {
     List<LocationEntity> findAllByTracker_SerialNumber(String serialNumber);
 
+    List<LocationEntity> findAll();
+
     List<LocationEntity> findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(String serialNumber,
                                                                                           LocalDateTime start,
                                                                                           LocalDateTime end);

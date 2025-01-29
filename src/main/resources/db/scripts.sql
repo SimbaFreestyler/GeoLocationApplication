@@ -38,6 +38,7 @@ create table geo.location (
     id integer not null,
     timestamp timestamp,
     tracker_id varchar(20) not null,
+    coords geography,
     foreign key (tracker_id) references geo.tracker (serial_number)
 );
 

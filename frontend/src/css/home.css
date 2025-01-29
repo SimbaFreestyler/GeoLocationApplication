@@ -1,27 +1,31 @@
+.main-container {
+    display: flex;
+    flex-direction: column; /* Ustawienie elementów jeden pod drugim */
+    align-items: center;
+    justify-content: flex-start;
+    max-height: calc(90vh - 20px);
+    padding: 2rem 1rem; /* Zapewnia odstęp od krawędzi */
+    gap: 2rem; /* Dynamiczny odstęp między elementami */
+    overflow-y: auto;
+    text-align: center;
+}
+
 .welcome-title {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem); /* Skalowanie w zależności od ekranu */
     color: white;
     text-align: center;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+}
 
-  .text {
-    font-size: 1.2rem;
+.text {
+    font-size: clamp(0.9rem, 1.8vw, 1.2rem);
     color: white;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     width: 45%;
-  }
+}
 
-  .text.description1 {
-    top: 35%;
-  }
+.text.description1 {
+    align-self: center;
+}
 
-  .text.description2 {
-    top: 65%;
-  }
+.text.description2 {
+    align-self: center;
+}
