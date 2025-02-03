@@ -3,8 +3,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import "../css/form.css";
 import { getVehicles } from "../actions/vehicles";
 import { getTrackers } from "../actions/trackers";
-import { TrackerResponse, VehicleResponse, VehicleTrackerRequest } from "../dto/dto";
+import {
+  TrackerResponse,
+  VehicleResponse,
+  VehicleTrackerRequest,
+} from "../dto/dto";
 import { createVehicleTracker } from "../actions/vehicleTrackers";
+import { validateDateRange } from "../actions/validation";
 
 type FormState = {
   vehicleId: string;
@@ -26,6 +31,7 @@ function AddVehicleTrackerForm({ onClose }: Props) {
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<FormState>();
 
   useEffect(() => {
@@ -52,15 +58,14 @@ function AddVehicleTrackerForm({ onClose }: Props) {
 
     const createdTracker = await createVehicleTracker(vehicleTrackerRequest);
     console.log(createdTracker);
-        
-          if (createdTracker) {
-              console.log("Vehicle tracker created successfully:", createdTracker);
-              onClose();
-              reset();
-          } else {
-              console.error("Failed to create vehicle tracker.");
-          
-          };
+
+    if (createdTracker) {
+      console.log("Vehicle tracker created successfully:", createdTracker);
+      onClose();
+      reset();
+    } else {
+      console.error("Failed to create vehicle tracker.");
+    }
   };
 
   return (
@@ -80,13 +85,18 @@ function AddVehicleTrackerForm({ onClose }: Props) {
           >
             <option value="">-- Wybierz pojazd --</option>
             {vehicles.map((vehicle) => (
-              <option key={vehicle.registrationNumber} value={vehicle.registrationNumber}>
+              <option
+                key={vehicle.registrationNumber}
+                value={vehicle.registrationNumber}
+              >
                 {vehicle.brand} {vehicle.model} - {vehicle.registrationNumber}
               </option>
             ))}
           </select>
           {errors.vehicleId && (
-            <span className="form-error form-validation-text">{errors.vehicleId.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.vehicleId.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="trackerId">
@@ -107,7 +117,9 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             ))}
           </select>
           {errors.trackerId && (
-            <span className="form-error form-validation-text">{errors.trackerId.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.trackerId.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="startDate">
@@ -119,10 +131,14 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             id="startDate"
             {...register("startDate", {
               required: "Data od jest wymagana",
+              validate: (value) =>
+                validateDateRange(value, getValues("endDate")),
             })}
           />
           {errors.startDate && (
-            <span className="form-error form-validation-text">{errors.startDate.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.startDate.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="endDate">
@@ -132,8 +148,16 @@ function AddVehicleTrackerForm({ onClose }: Props) {
             type="date"
             className="form-input"
             id="endDate"
-            {...register("endDate")}
+            {...register("endDate", {
+              validate: (value) =>
+                validateDateRange(getValues("startDate"), value),
+            })}
           />
+          {errors.endDate && (
+            <span className="form-error form-validation-text">
+              {errors.endDate.message}
+            </span>
+          )}
 
           <input
             className="form-btn add"

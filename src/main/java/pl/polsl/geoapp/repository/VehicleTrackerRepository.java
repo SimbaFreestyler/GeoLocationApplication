@@ -9,7 +9,7 @@ import pl.polsl.geoapp.model.VehicleTrackerEntityId;
 import java.util.List;
 
 public interface VehicleTrackerRepository extends CrudRepository<VehicleTrackerEntity, VehicleTrackerEntityId> {
-    List<VehicleTrackerEntity> findAll();
+    List<VehicleTrackerEntity> findAllByVehicle_User_Email(String email);
 
     List<VehicleTrackerEntity> findAllById_TrackerId(String trackerId);
 

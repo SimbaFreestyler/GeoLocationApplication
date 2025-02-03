@@ -32,7 +32,7 @@ public class DriverService {
 
     @Transactional
     public DriverResponse[] getDrivers(String email) {
-        return driverRepository.findAllByUserEmail(email).stream()
+        return driverRepository.findAllByUser_Email(email).stream()
                 .map(DriverResponse::fromEntity)
                 .toArray(DriverResponse[]::new);
     }

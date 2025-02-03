@@ -6,7 +6,6 @@ import pl.polsl.geoapp.dto.BasicResponse;
 import pl.polsl.geoapp.dto.tracker.TrackerRequest;
 import pl.polsl.geoapp.dto.tracker.TrackerResponse;
 import pl.polsl.geoapp.model.TrackerEntity;
-import pl.polsl.geoapp.model.VehicleEntity;
 import pl.polsl.geoapp.repository.TrackerRepository;
 
 @Service
@@ -28,8 +27,8 @@ public class TrackerService {
     }
 
     @Transactional
-    public TrackerResponse[] getTrackers() {
-        return trackerRepository.findAll().stream()
+    public TrackerResponse[] getTrackers(String email) {
+        return trackerRepository.findAllByUser_Email(email).stream()
                 .map(TrackerResponse::fromEntity)
                 .toArray(TrackerResponse[]::new);
     }

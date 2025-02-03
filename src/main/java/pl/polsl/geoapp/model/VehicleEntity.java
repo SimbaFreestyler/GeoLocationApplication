@@ -19,6 +19,10 @@ public class VehicleEntity {
   @Column
   private String model;
 
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  UserEntity user;
+
   @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY)
   private Set<VehicleDriverEntity> vehicleDrivers;
 
@@ -55,6 +59,14 @@ public class VehicleEntity {
 
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public UserEntity getUser() {
+    return user;
+  }
+
+  public void setUser(UserEntity user) {
+    this.user = user;
   }
 
   public Set<VehicleDriverEntity> getVehicleDrivers() {

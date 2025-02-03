@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import "../css/form.css";
 import { getVehicles } from "../actions/vehicles";
-import { DriverResponse, VehicleDriverRequest, VehicleResponse } from "../dto/dto";
+import {
+  DriverResponse,
+  VehicleDriverRequest,
+  VehicleResponse,
+} from "../dto/dto";
 import { getDrivers } from "../actions/drivers";
 import { createVehicleDriver } from "../actions/vehicleDrivers";
+import { validateDateRange } from "../actions/validation";
 
 type FormState = {
   vehicleId: string;
@@ -26,6 +31,7 @@ function AddVehicleDriverForm({ onClose }: Props) {
     handleSubmit,
     formState: { errors },
     reset,
+    getValues,
   } = useForm<FormState>();
 
   useEffect(() => {
@@ -52,15 +58,14 @@ function AddVehicleDriverForm({ onClose }: Props) {
 
     const createdDriver = await createVehicleDriver(vehicleDriverRequest);
     console.log(createdDriver);
-        
-          if (createdDriver) {
-              console.log("Vehicle driver created successfully:", createdDriver);
-              onClose();
-              reset();
-          } else {
-              console.error("Failed to create vehicle driver.");
-          
-          };
+
+    if (createdDriver) {
+      console.log("Vehicle driver created successfully:", createdDriver);
+      onClose();
+      reset();
+    } else {
+      console.error("Failed to create vehicle driver.");
+    }
   };
 
   return (
@@ -80,13 +85,18 @@ function AddVehicleDriverForm({ onClose }: Props) {
           >
             <option value="">-- Wybierz pojazd --</option>
             {vehicles.map((vehicle) => (
-              <option key={vehicle.registrationNumber} value={vehicle.registrationNumber}>
+              <option
+                key={vehicle.registrationNumber}
+                value={vehicle.registrationNumber}
+              >
                 {vehicle.brand} {vehicle.model} - {vehicle.registrationNumber}
               </option>
             ))}
           </select>
           {errors.vehicleId && (
-            <span className="form-error form-validation-text">{errors.vehicleId.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.vehicleId.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="driverId">
@@ -107,7 +117,9 @@ function AddVehicleDriverForm({ onClose }: Props) {
             ))}
           </select>
           {errors.driverId && (
-            <span className="form-error form-validation-text">{errors.driverId.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.driverId.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="startDate">
@@ -119,10 +131,14 @@ function AddVehicleDriverForm({ onClose }: Props) {
             id="startDate"
             {...register("startDate", {
               required: "Data od jest wymagana",
+              validate: (value) =>
+                validateDateRange(value, getValues("endDate")),
             })}
           />
           {errors.startDate && (
-            <span className="form-error form-validation-text">{errors.startDate.message}</span>
+            <span className="form-error form-validation-text">
+              {errors.startDate.message}
+            </span>
           )}
 
           <label className="form-label" htmlFor="endDate">
@@ -132,8 +148,16 @@ function AddVehicleDriverForm({ onClose }: Props) {
             type="date"
             className="form-input"
             id="endDate"
-            {...register("endDate")}
+            {...register("endDate", {
+              validate: (value) =>
+                validateDateRange(getValues("startDate"), value),
+            })}
           />
+          {errors.endDate && (
+            <span className="form-error form-validation-text">
+              {errors.endDate.message}
+            </span>
+          )}
 
           <input
             className="form-btn add"

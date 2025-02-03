@@ -16,6 +16,10 @@ public class TrackerEntity {
     @Column
     private String type;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    UserEntity user;
+
     @OneToMany(mappedBy = "tracker", fetch = FetchType.LAZY)
     private List<LocationEntity> locations;
 
@@ -44,6 +48,14 @@ public class TrackerEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 
     public List<LocationEntity> getLocations() {

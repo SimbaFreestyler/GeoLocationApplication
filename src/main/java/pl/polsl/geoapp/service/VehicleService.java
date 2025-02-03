@@ -43,8 +43,8 @@ public class VehicleService {
     }
 
     @Transactional
-    public VehicleResponse[] getVehicles() {
-        return vehicleRepository.findAll().stream()
+    public VehicleResponse[] getVehicles(String email) {
+        return vehicleRepository.findAllByUser_Email(email).stream()
                 .map(VehicleResponse::fromEntity)
                 .toArray(VehicleResponse[]::new);
     }
@@ -79,8 +79,8 @@ public class VehicleService {
     }
 
     @Transactional
-    public VehicleTrackerResponse[] getVehicleTrackers() {
-        return vehicleTrackerRepository.findAll().stream()
+    public VehicleTrackerResponse[] getVehicleTrackers(String email) {
+        return vehicleTrackerRepository.findAllByVehicle_User_Email(email).stream()
                 .map(VehicleTrackerResponse::fromEntity)
                 .toArray(VehicleTrackerResponse[]::new);
     }
@@ -117,8 +117,8 @@ public class VehicleService {
     }
 
     @Transactional
-    public VehicleDriverResponse[] getVehicleDrivers() {
-        return vehicleDriverRepository.findAll().stream()
+    public VehicleDriverResponse[] getVehicleDrivers(String email) {
+        return vehicleDriverRepository.findAllByVehicle_User_Email(email).stream()
                 .map(VehicleDriverResponse::fromEntity)
                 .toArray(VehicleDriverResponse[]::new);
     }

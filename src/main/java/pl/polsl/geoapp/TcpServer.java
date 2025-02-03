@@ -105,10 +105,10 @@ public class TcpServer implements Runnable {
                 String deviceId = parts[1];
                 Double latitude = Double.parseDouble(parts[5]) / 100;
                 Double longitude = Double.parseDouble(parts[7]) / 100;
-                String timestampStr = parts[11];
+                String dateStr = parts[11];
                 String timeStr = parts[3];
                 DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("ddMMyy");
-                LocalDate date = LocalDate.parse(timestampStr, dateFormatter);
+                LocalDate date = LocalDate.parse(dateStr, dateFormatter);
                 DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmmss");
                 LocalTime time = LocalTime.parse(timeStr, timeFormatter);
                 LocalDateTime timestamp = LocalDateTime.of(date, time);

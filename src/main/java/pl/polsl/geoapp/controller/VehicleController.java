@@ -2,8 +2,10 @@ package pl.polsl.geoapp.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import pl.polsl.geoapp.dto.*;
+import pl.polsl.geoapp.dto.user.UserResponse;
 import pl.polsl.geoapp.dto.vehicle.VehicleRequest;
 import pl.polsl.geoapp.dto.vehicle.VehicleResponse;
 import pl.polsl.geoapp.service.VehicleService;
@@ -27,8 +29,9 @@ public class VehicleController {
     }
 
     @GetMapping("")
-    public ResponseEntity<VehicleResponse[]> getVehicles() {
-        return ResponseEntity.ok(vehicleService.getVehicles());
+    public ResponseEntity<VehicleResponse[]> getVehicles(Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return ResponseEntity.ok(vehicleService.getVehicles(user.getEmail()));
     }
 
     @DeleteMapping("/{registrationNumber}")
@@ -42,8 +45,9 @@ public class VehicleController {
     }
 
     @GetMapping("/tracker")
-    public ResponseEntity<VehicleTrackerResponse[]> getVehicleTrackers() {
-        return ResponseEntity.ok(vehicleService.getVehicleTrackers());
+    public ResponseEntity<VehicleTrackerResponse[]> getVehicleTrackers(Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return ResponseEntity.ok(vehicleService.getVehicleTrackers(user.getEmail()));
     }
 
     @DeleteMapping("/tracker/{registrationNumber}/{serialNumber}/{startDate}")
@@ -59,8 +63,9 @@ public class VehicleController {
     }
 
     @GetMapping("/driver")
-    public ResponseEntity<VehicleDriverResponse[]> getVehicleDrivers() {
-        return ResponseEntity.ok(vehicleService.getVehicleDrivers());
+    public ResponseEntity<VehicleDriverResponse[]> getVehicleDrivers(Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return ResponseEntity.ok(vehicleService.getVehicleDrivers(user.getEmail()));
     }
 
     @DeleteMapping("/driver/{registrationNumber}/{driverId}/{startDate}")
