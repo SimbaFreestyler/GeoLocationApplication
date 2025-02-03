@@ -74,12 +74,20 @@ body, html {
     background-color: #4a77d4;
 }
 
+.form-btn.help {
+  background-color: #554d58;
+}
+
 .form-btn.delete {
     background-color: #c04d4d;
 }
 
 .form-btn.add:hover {
   background-color: #3d5ca3;
+}
+
+.form-btn.help:hover {
+  background-color: #39363b;
 }
 
 .form-btn.delete:hover {
@@ -108,4 +116,16 @@ body, html {
   width: 100%;
   color: #ff4545;
   margin-bottom: 10px;
+}
+
+.help-dialog {
+  position: fixed; /* Umieszcza element w stałej pozycji względem okna */
+  top: 50%; /* Wyrównuje do połowy wysokości ekranu */
+  left: 50%; /* Wyrównuje do połowy szerokości ekranu */
+  transform: translate(-50%, -50%); /* Dostosowuje pozycję, aby dialog był dokładnie w centrum */
+  background-color: rgb(46, 44, 44);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Zapewnia, że dialog będzie nad innymi elementami */
 }

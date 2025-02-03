@@ -1,9 +1,7 @@
 package pl.polsl.geoapp.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "user", schema = "adm")
@@ -14,6 +12,9 @@ public class UserEntity {
 
   @Column
   private String password;
+
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  private Set<DriverEntity> driver;
 
   public String getEmail() {
     return email;
@@ -29,5 +30,13 @@ public class UserEntity {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public Set<DriverEntity> getDriver() {
+    return driver;
+  }
+
+  public void setDriver(Set<DriverEntity> driver) {
+    this.driver = driver;
   }
 }

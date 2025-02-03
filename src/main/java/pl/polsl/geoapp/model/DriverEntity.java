@@ -22,7 +22,7 @@ public class DriverEntity {
   @Column
   private String surname;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "user_id")
   UserEntity user;
 

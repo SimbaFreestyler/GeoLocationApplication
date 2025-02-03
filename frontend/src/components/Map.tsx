@@ -72,7 +72,6 @@ function Map() {
   }, [formValues])
 
   useEffect(() => {
-    console.log('Zmineiły się?', locations);
     if (!mapRef.current) return;
   
     mapRef.current.eachLayer((layer) => {
@@ -84,6 +83,7 @@ function Map() {
     const latLngs: [number, number][] = locations
       .filter(loc => loc.latitude !== null && loc.longitude !== null)
       .map(loc => [loc.latitude as number, loc.longitude as number]);
+    console.log(latLngs);
   
     if (latLngs.length > 1) {
       leaflet.polyline(latLngs, { color: "blue", weight: 4 }).addTo(mapRef.current!);

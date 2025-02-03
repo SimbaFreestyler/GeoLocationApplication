@@ -117,7 +117,7 @@ public class TcpServer implements Runnable {
                     LocationEntity location = new LocationEntity();
                     location.setTracker(tracker.get());
                     location.setTimestamp(timestamp);
-                    location.setCoords(locationService.createPoint(longitude, latitude));
+                    location.setCoords(locationService.createPoint(latitude, longitude));
                     locationRepository.save(location);
                 }
             }

@@ -1,9 +1,13 @@
 package pl.polsl.geoapp.dto.user;
 
+import javax.validation.constraints.NotNull;
+
 public class UserRequest {
 
+    @NotNull
     private String email;
 
+    @NotNull
     private String password;
 
     public String getEmail() {
