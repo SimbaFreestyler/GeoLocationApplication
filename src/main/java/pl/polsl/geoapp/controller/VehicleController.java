@@ -24,8 +24,9 @@ public class VehicleController {
     }
 
     @PostMapping("")
-    public ResponseEntity<VehicleResponse> createVehicle(@RequestBody VehicleRequest request) {
-        return new ResponseEntity<>(vehicleService.createVehicle(request), HttpStatus.CREATED);
+    public ResponseEntity<VehicleResponse> createVehicle(@RequestBody VehicleRequest request, Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return new ResponseEntity<>(vehicleService.createVehicle(request, user.getEmail()), HttpStatus.CREATED);
     }
 
     @GetMapping("")

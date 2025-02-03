@@ -105,6 +105,9 @@ function Map() {
     loadTrackerData();
     loadVehicleData();
     loadDriverData();
+    if (trackers.length > 0 && !formValues.trackerId) {
+      handleInputChange("trackerId", trackers[0].serialNumber);
+    }
 
     return () => {
       mapRef.current?.remove();

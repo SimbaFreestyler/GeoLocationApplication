@@ -11,7 +11,8 @@ public interface LocationRepository extends CrudRepository<LocationEntity, Integ
 
     List<LocationEntity> findAll();
 
-    List<LocationEntity> findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(String serialNumber,
-                                                                                          LocalDateTime start,
-                                                                                          LocalDateTime end);
+    List<LocationEntity> findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBeforeOrderByTimestampAsc(
+        String serialNumber,
+        LocalDateTime start,
+        LocalDateTime end);
 }

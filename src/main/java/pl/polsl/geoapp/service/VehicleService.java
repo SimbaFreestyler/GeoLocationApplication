@@ -21,24 +21,28 @@ public class VehicleService {
     private final DriverRepository driverRepository;
     private final VehicleTrackerRepository vehicleTrackerRepository;
     private final VehicleDriverRepository vehicleDriverRepository;
+    private final UserRepository userRepository;
 
     public VehicleService(VehicleRepository vehicleRepository, TrackerRepository trackerRepository,
                           DriverRepository driverRepository, VehicleTrackerRepository vehicleTrackerRepository,
-                          VehicleDriverRepository vehicleDriverRepository) {
+                          VehicleDriverRepository vehicleDriverRepository, UserRepository userRepository) {
         this.vehicleRepository = vehicleRepository;
         this.trackerRepository = trackerRepository;
         this.driverRepository = driverRepository;
         this.vehicleTrackerRepository = vehicleTrackerRepository;
         this.vehicleDriverRepository = vehicleDriverRepository;
+        this.userRepository = userRepository;
     }
 
     @Transactional
-    public VehicleResponse createVehicle(VehicleRequest request) {
+    public VehicleResponse createVehicle(VehicleRequest request, String email) {
         VehicleEntity entity = new VehicleEntity();
         entity.setRegistrationNumber(request.getRegistrationNumber());
         entity.setVinNumber(request.getVinNumber());
         entity.setBrand(request.getBrand());
         entity.setModel(request.getModel());
+        entity.setUser(userRepository.findById(email)
+            .orElseThrow(() -> new RuntimeException("User not found with email: " + email)));
         return VehicleResponse.fromEntity(vehicleRepository.save(entity));
     }
 

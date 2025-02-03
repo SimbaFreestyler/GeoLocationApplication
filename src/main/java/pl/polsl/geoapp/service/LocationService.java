@@ -72,11 +72,13 @@ public class LocationService {
         switch (locationRequest.getRouteType()) {
             case "Lokalizator" -> {
                 List<LocationEntity> locationsss = locationRepository.findAll();
-                List<LocationResponse> locations = locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
+                List<LocationResponse> locations = locationRepository
+                    .findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBeforeOrderByTimestampAsc(
                         locationRequest.getTrackerId(), startDate.atStartOfDay(),
                                 endDate.plusDays(1L).atStartOfDay())
                         .stream().map(LocationResponse::fromEntity).toList();
-                List<LocationEntity> locations2 = locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
+                List<LocationEntity> locations2 = locationRepository
+                    .findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBeforeOrderByTimestampAsc(
                         locationRequest.getTrackerId(), startDate.atStartOfDay(),
                         endDate.plusDays(1L).atStartOfDay())
                     .stream().toList();
@@ -122,7 +124,8 @@ public class LocationService {
 
         List<LocationResponse> locationList = new ArrayList<>();
         vehicleRouteList.forEach(route -> {
-            locationList.addAll(locationRepository.findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBefore(
+            locationList.addAll(locationRepository
+                .findAllByTracker_SerialNumberAndTimestampAfterAndTimestampBeforeOrderByTimestampAsc(
                     route.getTrackerId(), route.getStartDateTime(), route.getEndDateTime())
                     .stream().map(LocationResponse::fromEntity).toList());
         });

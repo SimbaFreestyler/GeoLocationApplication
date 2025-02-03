@@ -20,8 +20,9 @@ public class TrackerController {
     }
 
     @PostMapping("")
-    public ResponseEntity<TrackerResponse> createTracker(@RequestBody TrackerRequest request) {
-        return new ResponseEntity<>(trackerService.createTracker(request), HttpStatus.CREATED);
+    public ResponseEntity<TrackerResponse> createTracker(@RequestBody TrackerRequest request, Authentication auth) {
+        UserResponse user = (UserResponse) auth.getPrincipal();
+        return new ResponseEntity<>(trackerService.createTracker(request, user.getEmail()), HttpStatus.CREATED);
     }
 
     @GetMapping("")
