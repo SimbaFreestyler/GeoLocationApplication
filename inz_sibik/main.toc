@@ -15,7 +15,7 @@
 \contentsline {paragraph}{}{2}{section*.11}%
 \contentsline {section}{\numberline {1.3}Zakres pracy}{2}{section.1.3}%
 \contentsline {paragraph}{}{2}{section*.12}%
-\contentsline {section}{\numberline {1.4}Charakterystyka rodziałów}{2}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Charakterystyka rozdziałów}{2}{section.1.4}%
 \contentsline {paragraph}{}{2}{section*.13}%
 \contentsline {chapter}{\numberline {2}Analiza tematu}{3}{chapter.2}%
 \contentsline {paragraph}{}{3}{section*.14}%
