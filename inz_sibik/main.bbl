@@ -17,141 +17,232 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
-  \entry{bib:internet}{online}{}
-    \name{author}{2}{}{%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{NINI1}
-    \strng{fullhash}{NINI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{title}{Tytuł strony internetowej}
-    \verb{url}
-    \verb http://gdzies/w/internecie/internet.html
-    \endverb
-    \field{year}{2021}
-    \field{urlday}{30}
-    \field{urlmonth}{09}
-    \field{urlyear}{2021}
-  \endentry
-
-  \entry{bib:konferencja}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{NININI1}
-    \strng{fullhash}{NININI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{booktitle}{Nazwa konferecji}
-    \field{pages}{5346\bibrangedash 5349}
-    \field{title}{Tytuł artykułu konferencyjnego}
-    \field{year}{2006}
-  \endentry
-
-  \entry{bib:artykul}{article}{}
-    \name{author}{3}{}{%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{NININI1}
-    \strng{fullhash}{NININI1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{number}{8}
-    \field{pages}{1092\bibrangedash 1113}
-    \field{title}{Tytuł artykułu w czasopiśmie}
-    \field{volume}{157}
-    \field{journaltitle}{Tytuł czasopisma}
-    \field{year}{2016}
-  \endentry
-
-  \entry{bib:ksiazka}{book}{}
-    \name{author}{3}{}{%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=NI}{%
-         family={Nazwisko},
-         familyi={N\bibinitperiod},
-         given={Imię},
-         giveni={I\bibinitperiod},
+  \entry{bib:java}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BJ}{%
+         family={Bloch},
+         familyi={B\bibinitperiod},
+         given={Joshua},
+         giveni={J\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
-      {Wydawnictwo}%
+      {Wydawnictwo Helion}%
     }
-    \strng{namehash}{NININI1}
-    \strng{fullhash}{NININI1}
+    \strng{namehash}{BJ1}
+    \strng{fullhash}{BJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{N}
-    \field{sortinithash}{N}
-    \field{isbn}{83-204-3229-9-434}
-    \field{title}{Tytuł książki}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{isbn}{978-83-283-9896-2}
+    \field{title}{Java. Efektywne programowanie}
     \list{location}{1}{%
-      {Warszawa}%
+      {Gliwice}%
     }
-    \field{year}{2017}
+    \field{year}{2018}
+  \endentry
+
+  \entry{bib:spring}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Boot},
+         familyi={B\bibinitperiod},
+         given={Spring},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Spring Boot - oficjalna strona producenta}
+    \verb{url}
+    \verb https://spring.io/projects/spring-boot
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:javascript}{book}{}
+    \name{author}{1}{}{%
+      {{hash=FD}{%
+         family={Flanagan},
+         familyi={F\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {O'Reilly Media}%
+    }
+    \strng{namehash}{FD1}
+    \strng{fullhash}{FD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{isbn}{978-1565923928}
+    \field{title}{JavaScript. The Definitive Guide}
+    \list{location}{1}{%
+      {Sebastopol}%
+    }
+    \field{year}{2020}
+  \endentry
+
+  \entry{bib:git}{online}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Git},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Git - oficjalna strona producenta}
+    \verb{url}
+    \verb https://git-scm.com/doc
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:hibernate}{online}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={Hibernate},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Hibernate - oficjalna strona producenta}
+    \verb{url}
+    \verb https://hibernate.org/orm/
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:gps}{book}{}
+    \name{author}{1}{}{%
+      {{hash=HJ}{%
+         family={Hurn},
+         familyi={H\bibinitperiod},
+         given={Jeff},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Trimble Navigation Ltd}%
+    }
+    \strng{namehash}{HJ1}
+    \strng{fullhash}{HJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{isbn}{97-899-9253-7-015}
+    \field{title}{GPS: A Guide to the Next Utility}
+    \list{location}{1}{%
+      {Sunnyvale}%
+    }
+    \field{year}{1989}
+  \endentry
+
+  \entry{bib:postgis}{online}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={PostGIS},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{P1}
+    \strng{fullhash}{P1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{PostGIS - oficjalna strona producenta}
+    \verb{url}
+    \verb https://postgis.net/documentation/
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:postgres}{online}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={PostgreSQL},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{P2}
+    \strng{fullhash}{P2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{PostgreSQL - oficjalna strona producenta}
+    \verb{url}
+    \verb https://www.postgresql.org/docs/
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:react}{online}{}
+    \name{author}{1}{}{%
+      {{hash=R}{%
+         family={React},
+         familyi={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{R1}
+    \strng{fullhash}{R1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{React - oficjalna strona producenta}
+    \verb{url}
+    \verb https://react.dev/learn
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
+  \endentry
+
+  \entry{bib:typescript}{online}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={TypeScript},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{TypeScript - oficjalna dokumentacja producenta}
+    \verb{url}
+    \verb https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.
+    \verb html
+    \endverb
+    \field{year}{2025}
+    \warn{\item Invalid format of field 'urldate'}
   \endentry
 \enddatalist
 \endinput
