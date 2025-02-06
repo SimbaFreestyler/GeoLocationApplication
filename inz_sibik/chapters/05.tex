@@ -1,9 +1,35 @@
 \chapter{Specyfikacja wewnętrzna}
 \label{ch:05}
 
-\section{Przedstawienie idei}
 \paragraph{}
-Widok użytkownika napisany został w języku TypeScript, bazuje na komponentach biblioteki React. Podłoże aplikacji jest oparte na języku Java. Znanym wzorcem projektowym jest MVC (ang. Model View Controller), co przetłumaczone na język polski brzmi: model, widok, kontroler. Model to cześć odpowiadająca za przechowywanie danych. Widok to część dostępna dla użytkownika aplikacji, natomiast kontroler wykonuje operacje i jest odpowiedzialny za logikę programu. Do stworzenia programu wykorzystano architekturę warstwową, która bazuje na MVC oraz skorzystano z wzorca projektowego o nazwie repozytorium. Repozytorium oznacza oddzielenie logiki biznesowej od bazy danych, natomiast architektura wartwowa zakłada istnienie takich warstw jak: encje - będące reprezentacją danych, kontrolery - obsługujące żądania HTTP, serwisy - odpowiedzialne za logikę biznesową i będące wywoływanymi przez kontrolery, repozytoria - mające dostęp do bazy danych, wykonujące operacje zapisu lub pobrania danych. Mapowanie encji na tabele w bazie danych, jak i odwrotnie, jest dostępne dzięki zastosowaniu adnotacji Hibernate.
+Specyfikacja wewnętrzna jest ważnym elementem dokumentacji technicznej. Pozwala na zrozumienie funkcjonowania aplikacji, dzięki zawartym opisom struktur danych, architektury systemu, jak również tłumaczeniom kodu źródłowego, popartym jego fragmentami.
+
+\section{Przedstawienie architektury systemu}
+\paragraph{}
+Podczas pisania kodu źródłowego kierowano się podejściem database-first, co oznacza rozpoczęcie prac od zaprojektowania bazy danych. Pierwszym krokiem było przygotowanie schematu, który znajduje się na rys. \ref{fig:database}, który jest opisanyw następnym podrozdziale. W oparciu o schemat utworzono bazę danych, a następnie odpowiadające tabelom klasy encji w języku Java. Po zakończeniu poprzednich kroków, rozpoczęto pisanie kodu interfejsu oraz tego odpowiadającego za logikę aplikacji. 
+
+\paragraph{}
+Aplikacja podzielona jest na trzy warstwy, co obrazuje schemat wdrożenia (rys. \ref{deployment_diagram}). Aplikacja na urządzeniu użytkownika reprezentuje frontend, czyli część związaną z interfejsem. Serwer aplikacji oznacza backend - część funkcjonalną. Dwie opisane wartswy programu komunikują sę ze sobą przy użyciu ządań HTTP. Backend komunikuje się również z bazą danych - trzecią częścią aplikacji - z wykorzystaniem JPA oraz Hibernate. Ostatnim elementem schematu jest lokalizator, nie należący do żadnej z warstw aplikacji, natomiast jest on ważnym elemnetem podczas działania systemu i komunikuje się z częścią funkcjonalną za pomocą protokołu TCP.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{./graf/deployment_diagram.png}
+	\caption{Diagram wdrożenia.}
+	\label{deployment_diagram}
+\end{figure}
+
+\paragraph{}
+Widok użytkownika (frontend) napisany został w języku TypeScript, bazuje na komponentach biblioteki React. Podłoże aplikacji (backend) jest oparte na języku Java. Znanym wzorcem projektowym jest MVC (ang. Model View Controller), co przetłumaczone na język polski brzmi: model, widok, kontroler. Model to cześć odpowiadająca za przechowywanie danych. Widok to część dostępna dla użytkownika aplikacji, natomiast kontroler wykonuje operacje i jest odpowiedzialny za logikę programu. Do stworzenia programu wykorzystano architekturę warstwową, która bazuje na MVC oraz skorzystano z wzorca projektowego o nazwie repozytorium. Repozytorium oznacza oddzielenie logiki biznesowej od bazy danych, natomiast architektura wartwowa zakłada istnienie takich warstw jak: encje - będące reprezentacją danych, kontrolery - obsługujące żądania HTTP, serwisy - odpowiedzialne za logikę biznesową i będące wywoływanymi przez kontrolery, repozytoria - mające dostęp do bazy danych, wykonujące operacje zapisu lub pobrania danych. Mapowanie encji na tabele w bazie danych, jak i odwrotnie, jest dostępne dzięki zastosowaniu adnotacji Hibernate.
+
+\paragraph{}
+Proces interakcji między częściami aplikacji podczas realizowania operacji zainicjowanej przez użytkownika przedstawia diagram sekwencji, znajdujący się na rys. \ref{sequence_diagram}. Obrazuje on przypadek dodania kierowcy. Po wciśnięciu na interfejsie przycisku odpowiadającego za dodanie kierowcy, wywoływany jest odpowedni punkt końcowy (ang. endpoint). W efekcie tego, uruchomiona zostaje metoda w kontrolerze, której następstwem jest wywołanie metody w serwisie. Logika umieszczona w serwisie tworzy nowy obiekt encji kierowcy w oparciu o żądanie znajdujące się argumencie metody, które na początku zostało wysłane z interfejsu. Nowo utworzony obiekt zostaje następnie zapisany do bazy danych przy użyciu repozytorium.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{./graf/sequence_diagram.png}
+	\caption{Diagram sekwencji - dodanie kierowcy.}
+	\label{sequence_diagram}
+\end{figure}
 
 \section{Opis struktur danych}
 \paragraph{}

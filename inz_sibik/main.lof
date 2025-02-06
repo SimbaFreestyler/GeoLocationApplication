@@ -1,3 +1,4 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
@@ -5,38 +6,99 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Zrzut ekranu przedstawiający wygląd aplikacji MKING GPS.\relax }}{5}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Zrzut ekranu przedstawiający wygląd aplikacji iTrackLive.\relax }}{6}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia niezalogowanego użytkownika.}}{7}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram przypadków użycia zalogowanego użytkownika.}}{8}{figure.caption.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia niezalogowanego użytkownika.\relax }}{9}{figure.caption.27}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagram przypadków użycia zalogowanego użytkownika.\relax }}{9}{figure.caption.28}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Zrzut ekranu przedstawiający stronę główną.}}{15}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Zrzut ekranu przedstawiający formularz logowania.}}{16}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Zrzut ekranu przedstawiający formularz rejestracji.}}{16}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Moje konto.}}{16}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy.}}{16}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania kierowcy.}}{17}{figure.caption.44}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy z jednym kierowcą na liście.}}{17}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Pojazdy.}}{17}{figure.caption.46}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania pojazdu.}}{18}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Lokalizatory.}}{18}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania lokalizatora.}}{19}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania kierowcy z pojazdem.}}{20}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania lokalizatora z pojazdem.}}{21}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Mapa.}}{21}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy kierowcy.}}{22}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy pojazdu.}}{23}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Zrzut ekranu przedstawiający mapę z jedną trasą.}}{24}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Podpis rysunku po rysunkiem.}}{24}{figure.caption.56}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Zrzut ekranu przedstawiający stronę główną.\relax }}{16}{figure.caption.51}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zrzut ekranu przedstawiający formularz logowania.\relax }}{17}{figure.caption.53}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Zrzut ekranu przedstawiający formularz rejestracji.\relax }}{17}{figure.caption.54}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Moje konto.\relax }}{18}{figure.caption.57}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy.\relax }}{19}{figure.caption.59}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania kierowcy.\relax }}{19}{figure.caption.60}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Kierowcy z jednym kierowcą na liście.\relax }}{19}{figure.caption.61}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Pojazdy.\relax }}{20}{figure.caption.63}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania pojazdu.\relax }}{21}{figure.caption.64}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Lokalizatory.\relax }}{21}{figure.caption.66}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania lokalizatora.\relax }}{22}{figure.caption.67}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania lokalizatora.\relax }}{22}{figure.caption.68}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania kierowcy z pojazdem.\relax }}{23}{figure.caption.71}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania powiązania lokalizatora z pojazdem.\relax }}{24}{figure.caption.73}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Zrzut ekranu przedstawiający zakładkę Mapa.\relax }}{25}{figure.caption.75}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy kierowcy.\relax }}{26}{figure.caption.77}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Zrzut ekranu przedstawiający formularz dodawania trasy pojazdu.\relax }}{26}{figure.caption.78}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Zrzut ekranu przedstawiający mapę z jedną trasą.\relax }}{27}{figure.caption.79}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Zrzut ekranu przedstawiający mapę z jedną trasą.\relax }}{27}{figure.caption.80}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{25}{figure.caption.57}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagram wdrożenia.\relax }}{30}{figure.caption.85}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagram sekwencji - dodanie kierowcy.\relax }}{31}{figure.caption.88}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Kod encji użytkownika - Java.\relax }}{32}{figure.caption.90}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Kod żądania użytkownika.\relax }}{33}{figure.caption.92}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Funkcja konwertująca encję na odpowiedź.\relax }}{33}{figure.caption.93}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Kod żądania użytkownika - TypeScript.\relax }}{33}{figure.caption.95}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Schemat bazy danych.\relax }}{34}{figure.caption.97}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Zwracany JSX przez zakładkę strony głównej.\relax }}{35}{figure.caption.99}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Typ danych do formularza.\relax }}{35}{figure.caption.100}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Destrukturyzacja stałych z biblioteki React Hook Form.\relax }}{35}{figure.caption.101}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Rejestracja i walidacja pól.\relax }}{36}{figure.caption.102}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Inicjalizacja mapy.\relax }}{37}{figure.caption.103}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Dodanie trasy do mapy.\relax }}{38}{figure.caption.104}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Wywołanie funkcji "getDrivers()", wysyłającej żądanie HTTP.\relax }}{38}{figure.caption.106}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Kod funkcji wysyłającej żądanie HTTP w celu pobrania listy kierowców.\relax }}{38}{figure.caption.107}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Metoda kontrolera, pobierająca listę kierowców.\relax }}{39}{figure.caption.108}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Metoda serwisu, pobierająca listę kierowców.\relax }}{39}{figure.caption.109}%
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\babel@toc {british}{}\relax 
-\babel@toc {polish}{}\relax 
-\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

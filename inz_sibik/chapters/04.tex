@@ -1,14 +1,17 @@
 \chapter{Specyfikacja zewnętrzna}
 \label{ch:04}
 
-\subsection{Wymagania sprzętowe i programowe}
+\paragraph{}
+Specyfikacja zewnętrzna opisuje interakcje użytkownika z systemem, jak również jego wygląd i sposób obsługi. Niniejszy rozdział zawiera także informacje na temat wymagań sprzętowych, które należy spełnić, aby aplikacja działała poprawnie.
+
+\section{Wymagania sprzętowe i programowe}
 \paragraph{}
 Aplikacja do działania potrzebuje serwera - komputera, na którym skompilowany z kodu źródłowego program, jak również baza danych, będą uruchomione. Serwer musi posiadać dostęp do internetu oraz jego adres musi być publicznie dostępny. Dzięki temu ma on możliwość obsługiwania żądań HTTP wysyłanych przez użytkowników.
 
 \paragraph{}
 W przypadku działającego serwera, można do użytkowania aplikacji. W celu uzyskania do niej dostępu, użytkownik musi mieć zainstalowaną przeglądarkę na urządzeniu (np. komputerze stacjonarnym, laptopie, tablecie czy smartfonie) oraz połączenia z internetem. Po spełnieniu powyższych wymagań, w pasek adresu URL w przeglądarce należy wpisać adres serwera oraz port, na którym uruchomiona jest aplikacja. Można również uprościć użytkownikom uruchomienie aplikacji poprzez uruchomienie serwera na konkretnej domenie DNS, którą wystarczy wpisać w przeglądarce, natomiast nie zostało to zaimplementowane w trakcie procesu tworzenia systemu.
 
-\subsection{Kategorie użytkowników}
+\section{Kategorie użytkowników}
 \paragraph{}
 Wyróżniamy dwa rodzaje użytkowników: 
 \begin{itemize}
@@ -27,7 +30,7 @@ Z niezalogowanym użytkownikiem mamy do czynienia wówczas, gdy nastąpi włącz
 \paragraph{}
 Zalogowany użytkownik uzyskuje dostęp do właściwych funkcji systemu, dzięki którym może zarządzać lokalizatorami, jak również kierowcami i pojazdami.
 
-\subsection{Sposób obsługi}
+\section{Sposób obsługi}
 \paragraph{}
 Po włączeniu aplikacji ukazuje się strona główna. Widoczny na niej tekst zachęca do skorzystania z wszystkich funkcji systemu. Jej wygląd jest widoczny na rys. \ref{fig:home_page}. Na górze strony znajduje się pasek nawigacji, który towarzyszy użytkownikowi przez cały czas użytkowania programu, lecz różni się w zależności od tego, czy użytkownik jest niezalogowany (pasek wtedy przybiera formę jak na rys. \ref{fig:home_page}, czy zalogowany (w tym przypadku pasek wygląda jak na rys.\ref{fig:user_tab}). Po kliknięciu w poszczególną opcję na pasku, odpowiadająca jej zakładka jest otwierana. Aby przejść do formularzy logowania i rejestracji, należy wybrać opcję "Zaloguj się".
 
@@ -111,7 +114,7 @@ Zakładką o analogicznym działaniu jest zakładka „Pojazdy”. Posiada list�
 \end{figure}
 
 \paragraph{}
-„Lokalizatory” to trzecia zakładka o podobnej zasadzie działania. Zrzut ekranu z jej wyglądem jest dostępny na rys. \ref{fig:tracker_tab}. Lista zawiera lokalizatory dodane przez użytkownika. Po kliknięciu w przycisk zatytułowany „Dodaj lokalizator”, otworzy się formularz, tym razem posiadający trzy pola do wypełnienia (rys.\ref{fig:add_tracker}). Nazwa jest dowolai, ma na celu ułatwić użytkownikowi znalezienie pożądanego lokalizatora na liście, numer seryjny jest polem identyfikacyjnym, które jest niepowtarzalne dla każdego urządzenia, natomiast w pole typ należy wpisać model urządzenia. W tym formularzu pojawia się również dodatkowy przycisk z napisem "Instrukcja - konfiguracja lokalizatora". Otwiera on dodatkowe okno z punktami, które trzeba wykonać, aby skonfigurować urządzenie do działania z aplikacją (rys. \ref{fig:help_dialog}). Można je zamknąć przyciskiem "Anuluj". Usuwanie odbywa się za pomocą przycisku „Usuń”, widocznego na rys. \ref{fig:tracker_tab}.
+„Lokalizatory” to trzecia zakładka o podobnej zasadzie działania. Zrzut ekranu z jej wyglądem jest dostępny na rys. \ref{fig:tracker_tab}. Lista zawiera lokalizatory dodane przez użytkownika. Po kliknięciu w przycisk zatytułowany „Dodaj lokalizator”, otworzy się formularz, tym razem posiadający trzy pola do wypełnienia (rys.\ref{fig:add_tracker}). Nazwa jest dowolna, ma na celu ułatwić użytkownikowi znalezienie pożądanego lokalizatora na liście, numer seryjny jest polem identyfikacyjnym, które jest niepowtarzalne dla każdego urządzenia, natomiast w pole typ należy wpisać model urządzenia. W tym formularzu pojawia się również dodatkowy przycisk z napisem "Instrukcja - konfiguracja lokalizatora". Otwiera on dodatkowe okno z punktami, które trzeba wykonać, aby skonfigurować urządzenie do działania z aplikacją (rys. \ref{fig:help_dialog}). Można je zamknąć przyciskiem "Anuluj". Usuwanie odbywa się za pomocą przycisku „Usuń”, widocznego na rys. \ref{fig:tracker_tab}.
 
 \begin{figure}
 	\centering
